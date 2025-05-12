@@ -7,7 +7,9 @@
   <meta charset="UTF-8" />
   <meta name="robots" content="noindex, nofollow">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>Astrometrika - Astrology Readings</title>
+  <link rel="icon" href="{% static 'icons/favicon.png' %}" type="image/x-icon">
 
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Cinzel&display=swap" rel="stylesheet">
@@ -63,7 +65,7 @@
             <p class="booking-subtitle">
               Please fill out the form below to schedule your personalized astrology session. I will reach out to confirm the details.
             </p>
-            <form class="booking-form">
+            <form class="booking-form" id="bookingForm">
               <label for="fullName">Full Name</label>
               <input type="text" id="fullName" name="fullName" required />
 
@@ -86,11 +88,19 @@
                 </div>
               </div>
 
-              <label for="focusArea">Focus Area (Optional)</label>
-              <textarea maxlength="1000" id="focusArea" name="focusArea" placeholder="e.g. love, career, spiritual growth..."></textarea>
+        <label for="focusArea">Focus Area (Optional)</label>
+        <textarea maxlength="1000" id="focusArea" name="focusArea" placeholder="e.g. love, career, spiritual growth..."></textarea>
+        <div id="charCount" style="font-size: 0.9em; color: #667; margin-top: 4px;">
+            0 / 1000 characters
+        </div>
 
               <button type="submit" class="button submit-button">Submit Request</button>
             </form>
+
+            <div id="confirmationMessage" style="display: none; margin-top: 20px; color: green;">
+                ✅ Your request has been sent! I will contact you soon.
+            </div>
+
           </div>
         </section>
       </div>
@@ -117,6 +127,75 @@
     </div>
   </footer>
   <script>
+  const form = document.getElementById('bookingForm');
+  const confirmation = document.getElementById('confirmationMessage');
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    const formData = {
+      fullName: form.fullName.value,
+      email: form.email.value,
+      birthDate: form.birthDate.value,
+      birthTime: form.birthTime.value,
+      birthPlace: form.birthPlace.value,
+      focusArea: form.focusArea.value
+    };
+
+    fetch('/send_booking_request/', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'X-CSRFToken': getCookie('csrftoken'),
+      },
+      body: JSON.stringify(formData)
+    })
+    .then(response => {
+      if (!response.ok) throw new Error('Network error');
+      return response.json();
+    })
+    .then(data => {
+      if (data.status === 'ok') {
+        form.reset();
+        confirmation.style.display = 'block';
+        setTimeout(() => {
+          confirmation.style.display = 'none';
+        }, 5000);
+      } else {
+        alert('Something went wrong. Try again.');
+      }
+    })
+    .catch(error => {
+      alert('An error occurred: ' + error.message);
+    });
+  });
+
+  // CSRF
+  function getCookie(name) {
+    let cookieValue = null;
+    if (document.cookie && document.cookie !== '') {
+      const cookies = document.cookie.split(';');
+      for (let i = 0; i < cookies.length; i++) {
+        const cookie = cookies[i].trim();
+        // Does this cookie string begin with the name we want?
+        if (cookie.substring(0, name.length + 1) === (name + '=')) {
+          cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+          break;
+        }
+      }
+    }
+    return cookieValue;
+  }
+
+  const focusAreaInput = document.getElementById('focusArea');
+const charCountDisplay = document.getElementById('charCount');
+
+focusAreaInput.addEventListener('input', function () {
+  const length = focusAreaInput.value.length;
+  charCountDisplay.textContent = `${length} / 1000 characters`;
+});
+
+
     const starsContainer = document.querySelector('.stars');
 
     for (let i = 0; i < 100; i++) {
