@@ -15,11 +15,13 @@
       <a class="header-logo" href="/">
         <img src="{% static 'imgs/header_logo.png' %}" alt="{% trans 'astro logo' %}" class="header-logo-image" width="50" height="50" loading="lazy" />
       </a>
-      <nav class="header-menu">
-        <ul class="header-menu-list">
-          <li><a class="header-menu-link" href="/">{% trans "Home" %}</a></li>
-        </ul>
-      </nav>
+      <!--<nav class="header-menu">-->
+      <!--  <ul class="header-menu-list">-->
+      <!--    <li><a class="header-menu-link" href="/">{% trans "Home" %}</a></li>-->
+      <!--    <li><a class="header-menu-link" href="/">{% trans "About" %}</a></li>-->
+      <!--    <li><a class="header-menu-link" href="/">{% trans "Services" %}</a></li>-->
+      <!--  </ul>-->
+      <!--</nav>-->
       <div class="header-actions">
         <button class="header-contact-button button" type="button">{% trans "Contact" %}</button>
       </div>
@@ -75,8 +77,8 @@
     <div class="footer-container">
       <nav class="footer-menu">
         <ul class="footer-menu-list">
-          <li><a class="footer-menu-link" href="/privacy-policy.html">{% trans "Privacy policy" %}</a></li>
-          <li><a class="footer-menu-link" href="/terms-of-service.html">{% trans "Terms of Service" %}</a></li>
+          <li><a class="footer-menu-link" href="/">{% trans "Home" %}</a></li>
+
         </ul>
       </nav>
       <p class="footer-copy">{% trans "Astro. All rights reserved." %}</p>

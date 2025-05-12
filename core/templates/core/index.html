@@ -11,6 +11,10 @@
   <title>Astrometrika - Astrology Readings</title>
   <link rel="icon" href="{% static 'icons/favicon.png' %}" type="image/x-icon">
 
+  <link rel="alternate" hreflang="en" href="https://astrometrika.com/en/" />
+  <link rel="alternate" hreflang="ru" href="https://astrometrika.com/ru/" />
+  <link rel="alternate" hreflang="sv" href="https://astrometrika.com/sw/" />
+
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Cinzel&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Playfair&display=swap" rel="stylesheet">
@@ -25,92 +29,99 @@
       <a class="header-logo" href="/">
         <img src="{% static 'imgs/header_logo.png' %}" alt="astro logo" class="header-logo-image" width="50" height="50" loading="lazy" />
       </a>
-      <!--<nav class="header-menu">-->
-      <!--  <ul class="header-menu-list">-->
-      <!--    <li><a class="header-menu-link is-current" href="/">Home</a></li>-->
-      <!--    <li><a class="header-menu-link" href="/">About</a></li>-->
-      <!--    <li><a class="header-menu-link" href="/">Services</a></li>-->
-      <!--  </ul>-->
-      <!--</nav>-->
+
       <div class="header-actions">
-        <a href="?lang={% if LANGUAGE_CODE == 'ru' %}en{% else %}ru{% endif %}" class="button lang-button">
-            {% if LANGUAGE_CODE == 'ru' %}
-              English
-            {% else %}
-              Русский
-            {% endif %}
-          </a>
-      </div>
+        <form action="{% url 'set_language' %}" method="post" id="langForm">
+              {% csrf_token %}
+              <input name="next" type="hidden" value="{{ request.path }}">
+              <input type="hidden" name="language" id="languageInput" value="{{ LANGUAGE_CODE }}">
+              <div class="custom-select">
+                <div class="custom-select__selected" id="selectedLang">
+                  {% if LANGUAGE_CODE == 'en' %}English{% elif LANGUAGE_CODE == 'ru' %}Русский{% else %}Svenska{% endif %}
+                </div>
+                <ul class="custom-select__options" id="langOptions">
+                  <li data-value="en">English</li>
+                  <li data-value="ru">Русский</li>
+                  <li data-value="sv">Svenska</li>
+                </ul>
+              </div>
+        </form>
+          <!--<form action="{% url 'set_language' %}" method="post">-->
+          <!--  {% csrf_token %}-->
+          <!--  <input name="next" type="hidden" value="{{ request.path }}">-->
+          <!--  <select name="language" onchange="this.form.submit()" class="lang-select">-->
+          <!--    <option value="en" {% if LANGUAGE_CODE == 'en' %}selected{% endif %}>English</option>-->
+          <!--    <option value="ru" {% if LANGUAGE_CODE == 'ru' %}selected{% endif %}>Русский</option>-->
+          <!--    <option value="sv" {% if LANGUAGE_CODE == 'sv' %}selected{% endif %}>Svenska</option>-->
+          <!--  </select>-->
+          <!--</form>-->
+
+        </div>
+
     </div>
   </header>
 
-  <main>
-    <div class="container">
-      <section class="hero">
-        <div class="info">
-          <h1 class="title">Astrology<br>Readings</h2>
-          <div class="intro">
-            <h3 class="subtitle">Gain Insight Into Your Life and Future</h3>
-            <p>I offer personalized astrology readings to help you navigate life's challenges and opportunities. Discover your true potential and find guidance on your path.</p>
-            <a href="#booking" class="button book-button">Book a Reading</a>
-          </div>
+  <!-- ...до этого без изменений... -->
+<main>
+  <div class="container">
+    <section class="hero">
+      <div class="info">
+        <h1 class="title">{% trans "Astrology Readings" %}</h1>
+        <div class="intro">
+          <h3 class="subtitle">{% trans "Gain Insight Into Your Life and Future" %}</h3>
+          <p>{% trans "I offer personalized astrology readings to help you navigate life's challenges and opportunities. Discover your true potential and find guidance on your path." %}</p>
+          <a href="#booking" class="button book-button">{% trans "Book a Reading" %}</a>
         </div>
-        <div class="image-container">
-            <img src="{% static 'imgs/img.png' %}" alt="Astrologer portrait" class="portrait" />
-        </section>
       </div>
-        <section id="booking" class="booking-section">
-          <div class="container">
-            <h2 class="booking-title">{% trans "Book a Reading" %}</h2>
-            <p class="booking-subtitle">
-              Please fill out the form below to schedule your personalized astrology session. I will reach out to confirm the details.
-            </p>
-            <form class="booking-form" id="bookingForm">
-              <label for="fullName">Full Name</label>
-              <input type="text" id="fullName" name="fullName" required />
+      <div class="image-container">
+        <img src="{% static 'imgs/img.png' %}" alt="{% trans 'Astrologer portrait' %}" class="portrait" />
+      </div>
+    </section>
 
-                <!--<div class="form-group">-->
-                  <label for="email">Email Address</label>
-                  <input type="email" id="email" name="email" required />
-                <!--</div>-->
-              <div class="form-row">
-                <div class="form-group">
-                  <label for="birthDate">Date of Birth</label>
-                  <input type="date" id="birthDate" name="birthDate" required />
-                </div>
-                <div class="form-group">
-                  <label for="birthTime">Time of Birth</label>
-                  <input type="time" id="" name="birthTime" required />
-                </div>
-                <div class="form-group">
-                  <label for="birthPlace">Place of Birth</label>
-                  <input type="" id="birthPlace" name="birthPlace" required />
-                </div>
-              </div>
+    <section id="booking" class="booking-section">
+      <div class="container">
+        <h2 class="booking-title">{% trans "Book a Reading" %}</h2>
+        <p class="booking-subtitle">
+          {% trans "Please fill out the form below to schedule your personalized astrology session. I will reach out to confirm the details." %}
+        </p>
+        <form class="booking-form" id="bookingForm">
+          <label for="fullName">{% trans "Full Name" %}</label>
+          <input type="text" id="fullName" name="fullName" required />
 
-        <label for="focusArea">Focus Area (Optional)</label>
-        <textarea maxlength="1000" id="focusArea" name="focusArea" placeholder="e.g. love, career, spiritual growth..."></textarea>
-        <div id="charCount" style="font-size: 0.9em; color: #667; margin-top: 4px;">
-            0 / 1000 characters
-        </div>
+          <label for="email">{% trans "Email Address" %}</label>
+          <input type="email" id="email" name="email" required />
 
-              <button type="submit" class="button submit-button">Submit Request</button>
-            </form>
-
-            <div id="confirmationMessage" style="display: none; margin-top: 20px; color: green;">
-                ✅ Your request has been sent! I will contact you soon.
+          <div class="form-row">
+            <div class="form-group">
+              <label for="birthDate">{% trans "Date of Birth" %}</label>
+              <input type="date" id="birthDate" name="birthDate" required />
             </div>
-
+            <div class="form-group">
+              <label for="birthTime">{% trans "Time of Birth" %}</label>
+              <input type="time" id="birthTime" name="birthTime" required />
+            </div>
+            <div class="form-group">
+              <label for="birthPlace">{% trans "Place of Birth" %}</label>
+              <input type="text" id="birthPlace" name="birthPlace" required />
+            </div>
           </div>
-        </section>
+
+          <label for="focusArea">{% trans "Focus Area (Optional)" %}</label>
+          <textarea maxlength="1000" id="focusArea" name="focusArea" placeholder="{% trans 'e.g. love, career, spiritual growth...' %}"></textarea>
+          <div id="charCount" style="font-size: 0.9em; color: #667; margin-top: 4px;">
+            {% trans "0 / 1000 characters" %}
+          </div>
+
+          <button type="submit" class="button submit-button">{% trans "Submit Request" %}</button>
+        </form>
+
+        <div id="confirmationMessage" style="display: none; margin-top: 20px; color: green;">
+          ✅ {% trans "Your request has been sent! I will contact you soon." %}
+        </div>
       </div>
-    </div>
-    <div class="stars">
-      <div class="star"></div>
-      <div class="star"></div>
-      <div class="star"></div>
-    </div>
-  </main>
+    </section>
+  </div>
+</main>
 
 
   <footer>
@@ -119,30 +130,60 @@
       <nav class="footer-menu">
 
         <ul class="footer-menu-list">
-          <li><a class="footer-menu-link" href="/privacy-policy.html">Privacy policy</a></li>
-          <li><a class="footer-menu-link" href="/">Terms of Service</a></li>
+
+        <li><a class="footer-menu-link" href="{% url 'privacy-policy' %}">{% trans "Privacy policy" %}</a></li>
+        <li><a class="footer-menu-link" href="{% url 'terms-of-service' %}">{% trans "Terms of Service" %}</a></li>
+
         </ul>
       </nav>
       <p class="footer-copy">Astro. All rights reserved.</p>
     </div>
   </footer>
+  <div class="stars"></div>
   <script>
-  const form = document.getElementById('bookingForm');
+document.addEventListener("DOMContentLoaded", () => {
+  // Language select
+  const selected = document.getElementById("selectedLang");
+  const options = document.getElementById("langOptions");
+  const langInput = document.getElementById("languageInput");
+  const langForm = document.getElementById("langForm");
+
+  selected.addEventListener("click", () => {
+    options.style.display = options.style.display === "block" ? "none" : "block";
+  });
+
+  options.querySelectorAll("li").forEach(li => {
+    li.addEventListener("click", () => {
+      selected.textContent = li.textContent;
+      langInput.value = li.getAttribute("data-value");
+      options.style.display = "none";
+      langForm.submit();
+    });
+  });
+
+  document.addEventListener("click", e => {
+    if (!e.target.closest(".custom-select")) {
+      options.style.display = "none";
+    }
+  });
+
+  // Booking form
+  const bookingForm = document.getElementById('bookingForm');
   const confirmation = document.getElementById('confirmationMessage');
 
-  form.addEventListener('submit', function (e) {
+  bookingForm.addEventListener('submit', function (e) {
     e.preventDefault();
 
     const formData = {
-      fullName: form.fullName.value,
-      email: form.email.value,
-      birthDate: form.birthDate.value,
-      birthTime: form.birthTime.value,
-      birthPlace: form.birthPlace.value,
-      focusArea: form.focusArea.value
+      fullName: bookingForm.fullName.value,
+      email: bookingForm.email.value,
+      birthDate: bookingForm.birthDate.value,
+      birthTime: bookingForm.birthTime.value,
+      birthPlace: bookingForm.birthPlace.value,
+      focusArea: bookingForm.focusArea.value
     };
 
-    fetch('/send_booking_request/', {
+    fetch("{% url 'send_booking_request' %}", {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -156,7 +197,7 @@
     })
     .then(data => {
       if (data.status === 'ok') {
-        form.reset();
+        bookingForm.reset();
         confirmation.style.display = 'block';
         setTimeout(() => {
           confirmation.style.display = 'none';
@@ -170,14 +211,12 @@
     });
   });
 
-  // CSRF
   function getCookie(name) {
     let cookieValue = null;
     if (document.cookie && document.cookie !== '') {
       const cookies = document.cookie.split(';');
       for (let i = 0; i < cookies.length; i++) {
         const cookie = cookies[i].trim();
-        // Does this cookie string begin with the name we want?
         if (cookie.substring(0, name.length + 1) === (name + '=')) {
           cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
           break;
@@ -187,33 +226,35 @@
     return cookieValue;
   }
 
+  // Character count
   const focusAreaInput = document.getElementById('focusArea');
-const charCountDisplay = document.getElementById('charCount');
+  const charCountDisplay = document.getElementById('charCount');
 
-focusAreaInput.addEventListener('input', function () {
-  const length = focusAreaInput.value.length;
-  charCountDisplay.textContent = `${length} / 1000 characters`;
+  focusAreaInput.addEventListener('input', function () {
+    const length = focusAreaInput.value.length;
+    charCountDisplay.textContent = `${length} / 1000 characters`;
+  });
+
+  // Stars
+  const starsContainer = document.querySelector('.stars');
+
+  for (let i = 0; i < 100; i++) {
+    const star = document.createElement('div');
+    star.classList.add('star');
+
+    const x = Math.random() * 100;
+    const y = Math.random() * 100;
+    const delay = Math.random() * 5;
+    const duration = 1.5 + Math.random() * 3;
+
+    star.style.left = `${x}vw`;
+    star.style.top = `${y}vh`;
+    star.style.animationDelay = `${delay}s`;
+    star.style.animationDuration = `${duration}s`;
+
+    starsContainer.appendChild(star);
+  }
 });
-
-
-    const starsContainer = document.querySelector('.stars');
-
-    for (let i = 0; i < 100; i++) {
-      const star = document.createElement('div');
-      star.classList.add('star');
-
-      const x = Math.random() * 100;
-      const y = Math.random() * 100;
-      const delay = Math.random() * 5;
-      const duration = 1.5 + Math.random() * 3;
-
-      star.style.left = `${x}vw`;
-      star.style.top = `${y}vh`;
-      star.style.animationDelay = `${delay}s`;
-      star.style.animationDuration = `${duration}s`;
-
-      starsContainer.appendChild(star);
-    }
-  </script>
+</script>
 </body>
 </html>

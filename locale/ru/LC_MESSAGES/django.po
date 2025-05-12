@@ -1,25 +1,239 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-10 22:14+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
-"MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
-"n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
-"(n%100>=11 && n%100<=14)? 2 : 3);\n"
+"Language: ru\n"
 
-#: core/templates/core/index.html:61
+# Главная
+msgid "Astrology Readings"
+msgstr "Астрологические консультации"
+
+msgid "Gain Insight Into Your Life and Future"
+msgstr "Получите понимание своей жизни и будущего"
+
+msgid "I offer personalized astrology readings to help you navigate life's challenges and opportunities. Discover your true potential and find guidance on your path."
+msgstr "Я предлагаю персональные астрологические консультации, чтобы помочь вам справляться с жизненными трудностями и использовать возможности. Откройте свой истинный потенциал и найдите путь."
+
 msgid "Book a Reading"
-msgstr "Забронировать Описание"
+msgstr "Записаться на консультацию"
+
+msgid "Astrologer portrait"
+msgstr "Портрет астролога"
+
+msgid "Please fill out the form below to schedule your personalized astrology session. I will reach out to confirm the details."
+msgstr "Пожалуйста, заполните форму ниже, чтобы записаться на персональную астрологическую сессию. Я свяжусь с вами для подтверждения деталей."
+
+msgid "Full Name"
+msgstr "Полное имя"
+
+msgid "Email Address"
+msgstr "Электронная почта"
+
+msgid "Date of Birth"
+msgstr "Дата рождения"
+
+msgid "Time of Birth"
+msgstr "Время рождения"
+
+msgid "Place of Birth"
+msgstr "Место рождения"
+
+msgid "Focus Area (Optional)"
+msgstr "Тематика запроса (необязательно)"
+
+msgid "e.g. love, career, spiritual growth..."
+msgstr "например, любовь, карьера, духовный рост..."
+
+msgid "0 / 1000 characters"
+msgstr "0 / 1000 символов"
+
+msgid "Submit Request"
+msgstr "Отправить запрос"
+
+msgid "Your request has been sent! I will contact you soon."
+msgstr "Ваш запрос отправлен! Я скоро свяжусь с вами."
+
+# Email
+msgid "New Astrology Booking"
+msgstr "Новая заявка на астрологическую консультацию"
+
+msgid "Name"
+msgstr "Имя"
+
+msgid "Email"
+msgstr "Электронная почта"
+
+msgid "Birth Date"
+msgstr "Дата рождения"
+
+msgid "Birth Time"
+msgstr "Время рождения"
+
+msgid "Birth Place"
+msgstr "Место рождения"
+
+msgid "Focus Area"
+msgstr "Тематика"
+
+msgid "New Booking from %(name)s"
+msgstr "Новая запись от %(name)s"
+
+msgid "Your astrology request was received"
+msgstr "Ваша заявка на консультацию получена"
+
+msgid "Thank you %(name)s, we received your astrology request!"
+msgstr "Спасибо, %(name)s! Мы получили вашу заявку на астрологическую консультацию."
+
+msgid "We have received your astrology request and will contact you shortly."
+msgstr "Мы получили вашу заявку на астрологическую консультацию и скоро свяжемся с вами."
+
+msgid "Thank you, {{ full_name }}!"
+msgstr "Спасибо, {{ full_name }}!"
+
+
+
+msgid "Privacy Policy"
+msgstr "Политика конфиденциальности"
+
+msgid "Terms of Service"
+msgstr "Условия предоставления услуг"
+
+msgid "Last updated:"
+msgstr "Последнее обновление:"
+
+msgid "1. Information We Collect"
+msgstr "1. Информация, которую мы собираем"
+
+msgid "Your full name"
+msgstr "Ваше полное имя"
+
+msgid "Email address"
+msgstr "Электронная почта"
+
+msgid "Date and place of birth"
+msgstr "Дата и место рождения"
+
+msgid "Optional: Time of birth"
+msgstr "Дополнительно: Время рождения"
+
+msgid "Payment data (processed securely by Stripe)"
+msgstr "Платёжные данные (обрабатываются Stripe)"
+
+msgid "2. Purpose of Data Collection"
+msgstr "2. Цель сбора данных"
+
+msgid "We collect your data to:"
+msgstr "Мы собираем ваши данные, чтобы:"
+
+msgid "Deliver personalized astrology readings"
+msgstr "Предоставлять персонализированные астрологические прогнозы"
+
+msgid "Communicate regarding your booking"
+msgstr "Общаться по поводу вашего заказа"
+
+msgid "Process payments through Stripe"
+msgstr "Обрабатывать платежи через Stripe"
+
+msgid "3. Data Sharing"
+msgstr "3. Передача данных"
+
+msgid "We do not sell or rent your data. We share information only with:"
+msgstr "Мы не продаем и не передаем ваши данные. Мы делимся информацией только с:"
+
+msgid "Stripe (payment processor)"
+msgstr "Stripe (платежный процессор)"
+
+msgid "Hosting and analytics providers"
+msgstr "Поставщики хостинга и аналитики"
+
+msgid "4. Your Rights (GDPR)"
+msgstr "4. Ваши права (GDPR)"
+
+msgid "Access your data"
+msgstr "Доступ к вашим данным"
+
+msgid "Correct or delete your data"
+msgstr "Корректировать или удалить ваши данные"
+
+msgid "Withdraw consent at any time"
+msgstr "Отозвать согласие в любое время"
+
+msgid "Lodge a complaint with a supervisory authority"
+msgstr "Подать жалобу в надзорный орган"
+
+msgid "5. Data Retention"
+msgstr "5. Хранение данных"
+
+msgid "We retain your data for up to 12 months after the reading is delivered unless legally required to retain it longer."
+msgstr "Мы храним ваши данные до 12 месяцев после предоставления прогноза, если нет законных оснований для более длительного хранения."
+
+msgid "6. Contact"
+msgstr "6. Контакты"
+
+msgid "For any questions or concerns, please contact us at"
+msgstr "По всем вопросам и обращениям пишите нам на"
+
+msgid "Home"
+msgstr "Главная"
+
+msgid "About"
+msgstr "О нас"
+
+msgid "Services"
+msgstr "Услуги"
+
+msgid "Contact"
+msgstr "Контакты"
+
+msgid "Privacy policy"
+msgstr "Политика конфиденциальности"
+
+msgid "Astro. All rights reserved."
+msgstr "Astro. Все права защищены."
+
+msgid "7. Contact"
+msgstr "7. Контакты"
+
+msgid "1. Services Provided"
+msgstr "1. Предоставляемые услуги"
+
+msgid "We provide digital astrology readings based on user-supplied information. Our services are for personal insight and entertainment only."
+msgstr "Мы предоставляем цифровые астрологические прогнозы на основе информации, предоставленной пользователем. Наши услуги предназначены только для личного понимания и развлечения."
+
+msgid "2. Booking and Payment"
+msgstr "2. Бронирование и оплата"
+
+msgid "All readings are paid in advance via Stripe."
+msgstr "Все прогнозы оплачиваются заранее через Stripe."
+
+msgid "Upon payment, you will receive confirmation by email."
+msgstr "После оплаты вы получите подтверждение по электронной почте."
+
+msgid "The reading will be delivered within 3–5 business days."
+msgstr "Прогноз будет предоставлен в течение 3–5 рабочих дней."
+
+msgid "3. Cancellations and Refunds"
+msgstr "3. Отмена и возврат"
+
+msgid "Once work on your reading has started, refunds are not possible. If no work has begun, you may request a full refund within 24 hours of payment."
+msgstr "После начала работы над прогнозом возврат невозможен. Если работа не началась, вы можете запросить полный возврат в течение 24 часов после оплаты."
+
+msgid "4. Limitations"
+msgstr "4. Ограничения"
+
+msgid "We do not offer medical, legal, or financial advice."
+msgstr "Мы не предоставляем медицинские, юридические или финансовые консультации."
+
+msgid "Readings are subjective and based on traditional astrological interpretations."
+msgstr "Прогнозы являются субъективными и основаны на традиционных астрологических интерпретациях."
+
+msgid "5. Liability"
+msgstr "5. Ответственность"
+
+msgid "We are not liable for decisions made based on your astrology reading. You use our services at your own discretion."
+msgstr "Мы не несем ответственности за решения, принятые на основе астрологического прогноза. Вы используете наши услуги на свой страх и риск."
+
+msgid "6. Modifications"
+msgstr "6. Изменения"
+
+msgid "We reserve the right to update these terms. Continued use of our service means you accept the current terms."
+msgstr "Мы оставляем за собой право изменять условия. Продолжение использования означает согласие с актуальными условиями."

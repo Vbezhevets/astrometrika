@@ -1,0 +1,24 @@
+{% load i18n %}
+<!DOCTYPE html>
+<html>
+  <body style="font-family: Arial, sans-serif; color: #333; text-align: center;">
+    <div style="margin-bottom: 20px;">
+      <img src="https://www.astrometrika.com/static/icons/favicon.png"
+           alt="Astrometrika Logo"
+           width="32"
+           height="32"
+           style="display: inline-block;" />
+    </div>
+
+    <h2 style="margin-top: 0;">{% trans "New Astrology Booking" %}</h2>
+
+    <div style="text-align: left; display: inline-block; margin-top: 20px;">
+      <p><strong>{% trans "Name" %}:</strong> {{ full_name }}</p>
+      <p><strong>{% trans "Email" %}:</strong> {{ email }}</p>
+      <p><strong>{% trans "Birth Date" %}:</strong> {{ birth_date }}</p>
+      <p><strong>{% trans "Birth Time" %}:</strong> {{ birth_time }}</p>
+      <p><strong>{% trans "Birth Place" %}:</strong> {{ birth_place }}</p>
+      <p><strong>{% trans "Focus Area" %}:</strong> {{ focus_area }}</p>
+    </div>
+  </body>
+</html>

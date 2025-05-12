@@ -1,0 +1,240 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Language: sv\n"
+
+# Huvudsida
+msgid "Astrology Readings"
+msgstr "Astrologiska läsningar"
+
+msgid "Gain Insight Into Your Life and Future"
+msgstr "Få insikt i ditt liv och din framtid"
+
+msgid "I offer personalized astrology readings to help you navigate life's challenges and opportunities. Discover your true potential and find guidance on your path."
+msgstr "Jag erbjuder personliga astrologiska läsningar för att hjälpa dig att navigera genom livets utmaningar och möjligheter. Upptäck din fulla potential och hitta vägledning på din resa."
+
+msgid "Book a Reading"
+msgstr "Boka en läsning"
+
+msgid "Astrologer portrait"
+msgstr "Porträtt av astrolog"
+
+msgid "Please fill out the form below to schedule your personalized astrology session. I will reach out to confirm the details."
+msgstr "Vänligen fyll i formuläret nedan för att boka din personliga astrologisession. Jag kommer att kontakta dig för att bekräfta detaljerna."
+
+msgid "Full Name"
+msgstr "Fullständigt namn"
+
+msgid "Email Address"
+msgstr "E-postadress"
+
+msgid "Date of Birth"
+msgstr "Födelsedatum"
+
+msgid "Time of Birth"
+msgstr "Födelse tid"
+
+msgid "Place of Birth"
+msgstr "Födelseort"
+
+msgid "Focus Area (Optional)"
+msgstr "Fokusområde (valfritt)"
+
+msgid "e.g. love, career, spiritual growth..."
+msgstr "t.ex. kärlek, karriär, andlig utveckling..."
+
+msgid "0 / 1000 characters"
+msgstr "0 / 1000 tecken"
+
+msgid "Submit Request"
+msgstr "Skicka förfrågan"
+
+msgid "Your request has been sent! I will contact you soon."
+msgstr "Din förfrågan har skickats! Jag kommer att kontakta dig snart."
+
+# Email
+msgid "New Astrology Booking"
+msgstr "Ny astrologibokning"
+
+msgid "Name"
+msgstr "Namn"
+
+msgid "Email"
+msgstr "E-post"
+
+msgid "Birth Date"
+msgstr "Födelsedatum"
+
+msgid "Birth Time"
+msgstr "Födelse tid"
+
+msgid "Birth Place"
+msgstr "Födelseort"
+
+msgid "Focus Area"
+msgstr "Fokusområde"
+
+msgid "New Booking from %(name)s"
+msgstr "Ny bokning från %(name)s"
+
+msgid "Your astrology request was received"
+msgstr "Din astrologiförfrågan har mottagits"
+
+msgid "Thank you %(name)s, we received your astrology request!"
+msgstr "Tack %(name)s, vi har mottagit din astrologibokning!"
+
+msgid "We have received your astrology request and will contact you shortly."
+msgstr "Vi har mottagit din astrologiska förfrågan och kommer att kontakta dig snart."
+
+msgid "Thank you, {{ full_name }}!"
+msgstr "Tack, {{ full_name }}!"
+
+
+
+
+msgid "Privacy Policy"
+msgstr "Integritetspolicy"
+
+msgid "Terms of Service"
+msgstr "Användarvillkor"
+
+msgid "Last updated:"
+msgstr "Senast uppdaterad:"
+
+msgid "1. Information We Collect"
+msgstr "1. Information vi samlar in"
+
+msgid "Your full name"
+msgstr "Ditt fullständiga namn"
+
+msgid "Email address"
+msgstr "E-postadress"
+
+msgid "Date and place of birth"
+msgstr "Födelsedatum och födelseort"
+
+msgid "Optional: Time of birth"
+msgstr "Valfritt: födelsetid"
+
+msgid "Payment data (processed securely by Stripe)"
+msgstr "Betalningsdata (behandlas säkert av Stripe)"
+
+msgid "2. Purpose of Data Collection"
+msgstr "2. Syftet med datainsamlingen"
+
+msgid "We collect your data to:"
+msgstr "Vi samlar in dina uppgifter för att:"
+
+msgid "Deliver personalized astrology readings"
+msgstr "Leverera personliga astrologitolkningar"
+
+msgid "Communicate regarding your booking"
+msgstr "Kommunicera angående din bokning"
+
+msgid "Process payments through Stripe"
+msgstr "Behandla betalningar via Stripe"
+
+msgid "3. Data Sharing"
+msgstr "3. Delning av data"
+
+msgid "We do not sell or rent your data. We share information only with:"
+msgstr "Vi säljer eller hyr inte ut dina uppgifter. Vi delar information endast med:"
+
+msgid "Stripe (payment processor)"
+msgstr "Stripe (betalningsleverantör)"
+
+msgid "Hosting and analytics providers"
+msgstr "Webbhotell och analysleverantörer"
+
+msgid "4. Your Rights (GDPR)"
+msgstr "4. Dina rättigheter (GDPR)"
+
+msgid "Access your data"
+msgstr "Få tillgång till dina uppgifter"
+
+msgid "Correct or delete your data"
+msgstr "Korrigera eller radera dina uppgifter"
+
+msgid "Withdraw consent at any time"
+msgstr "Återkalla samtycke när som helst"
+
+msgid "Lodge a complaint with a supervisory authority"
+msgstr "Lämna in ett klagomål till tillsynsmyndigheten"
+
+msgid "5. Data Retention"
+msgstr "5. Databevarande"
+
+msgid "We retain your data for up to 12 months after the reading is delivered unless legally required to retain it longer."
+msgstr "Vi behåller dina uppgifter i upp till 12 månader efter att tolkningen levererats, om inte längre bevarande krävs enligt lag."
+
+msgid "6. Contact"
+msgstr "6. Kontakt"
+
+msgid "For any questions or concerns, please contact us at"
+msgstr "För frågor eller funderingar, kontakta oss på"
+
+msgid "Home"
+msgstr "Hem"
+
+msgid "About"
+msgstr "Om oss"
+
+msgid "Services"
+msgstr "Tjänster"
+
+msgid "Contact"
+msgstr "Kontakt"
+
+msgid "Privacy policy"
+msgstr "Integritetspolicy"
+
+msgid "Astro. All rights reserved."
+msgstr "Astro. Alla rättigheter förbehållna."
+
+msgid "7. Contact"
+msgstr "7. Kontakt"
+
+msgid "1. Services Provided"
+msgstr "1. Tjänster som erbjuds"
+
+msgid "We provide digital astrology readings based on user-supplied information. Our services are for personal insight and entertainment only."
+msgstr "Vi erbjuder digitala astrologitolkningar baserade på information som du tillhandahåller. Våra tjänster är endast avsedda för personlig insikt och underhållning."
+
+msgid "2. Booking and Payment"
+msgstr "2. Bokning och betalning"
+
+msgid "All readings are paid in advance via Stripe."
+msgstr "Alla tolkningar betalas i förskott via Stripe."
+
+msgid "Upon payment, you will receive confirmation by email."
+msgstr "Efter betalning får du en bekräftelse via e-post."
+
+msgid "The reading will be delivered within 3–5 business days."
+msgstr "Tolkningen levereras inom 3–5 arbetsdagar."
+
+msgid "3. Cancellations and Refunds"
+msgstr "3. Avbokning och återbetalningar"
+
+msgid "Once work on your reading has started, refunds are not possible. If no work has begun, you may request a full refund within 24 hours of payment."
+msgstr "När arbetet med din tolkning har börjat är återbetalningar inte möjliga. Om inget arbete har påbörjats kan du begära full återbetalning inom 24 timmar efter betalning."
+
+msgid "4. Limitations"
+msgstr "4. Begränsningar"
+
+msgid "We do not offer medical, legal, or financial advice."
+msgstr "Vi erbjuder inte medicinsk, juridisk eller finansiell rådgivning."
+
+msgid "Readings are subjective and based on traditional astrological interpretations."
+msgstr "Tolkningar är subjektiva och baseras på traditionella astrologiska tolkningar."
+
+msgid "5. Liability"
+msgstr "5. Ansvarsbegränsning"
+
+msgid "We are not liable for decisions made based on your astrology reading. You use our services at your own discretion."
+msgstr "Vi är inte ansvariga för beslut som fattas baserat på din astrologitolkning. Du använder våra tjänster på egen risk."
+
+msgid "6. Modifications"
+msgstr "6. Ändringar"
+
+msgid "We reserve the right to update these terms. Continued use of our service means you accept the current terms."
+msgstr "Vi förbehåller oss rätten att uppdatera dessa villkor. Genom fortsatt användning av våra tjänster accepterar du de aktuella villkoren."
