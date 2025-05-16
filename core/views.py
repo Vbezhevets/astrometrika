@@ -7,16 +7,17 @@ from django.conf import settings
 from django.utils.html import strip_tags
 from django.utils.translation import gettext as _
 from django.template.loader import render_to_string
-from django.utils.html import strip_tags
 from django.utils.translation import activate, get_language
+from datetime import datetime
 import json
 
+
 def index(request):
-    lang = request.GET.get('lang')
-    if lang:
-        translation.activate(lang)
-        request.session[settings.LANGUAGE_COOKIE_NAME] = lang
-    return render(request, 'core/index.html')
+    context = {
+        'timestamp': datetime.now().timestamp()
+    }
+    return render(request, 'core/index.html', context)
+
 
 def privacy_policy(request):
     return render(request, 'core/privacy-policy.html')
@@ -38,14 +39,17 @@ def notify_admin(full_name, email, birth_date, birth_time, birth_place, focus_ar
     html_message = render_to_string('core/emails/booking_admin.html', context)
     plain_message = strip_tags(html_message)
 
-    send_mail(
-        subject=subject,
-        message=plain_message,
-        html_message=html_message,
-        from_email='astrometrika@gmail.com',
-        recipient_list=['astrometrika@gmail.com'],
-        fail_silently=False,
-    )
+    # import os
+    # print("EMAIL_HOST_USER:", repr(os.environ.get("EMAIL_HOST_USER")))
+    # print("EMAIL_HOST_PASSWORD:", repr(os.environ.get("EMAIL_HOST_PASSWORD")))
+
+
+    subject=subject,
+    message=plain_message,
+    html_message=html_message,
+    from_email='astrometrika@gmail.com',
+    recipient_list=['astrometrika@gmail.com'],
+    fail_silently=False,
 
 def notify_user(email, full_name):
 

@@ -5,9 +5,16 @@
 <html lang="{{ LANGUAGE_CODE }}">
 <head>
   <meta charset="UTF-8">
+  <meta name="robots" content="noindex, nofollow">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{% trans "Terms of Service – Astrometrika" %}</title>
-  <link rel="stylesheet" href="{% static 'styles.css' %}">
+  <link rel="icon" href="{% static 'icons/favicon.png' %}" type="image/x-icon">
+
+  <link rel="alternate" hreflang="en" href="https://www.astrometrika.com/en/privacy-policy/" />
+  <link rel="alternate" hreflang="ru" href="https://www.astrometrika.com/ru/privacy-policy/" />
+  <link rel="alternate" hreflang="sv" href="https://www.astrometrika.com/sv/privacy-policy/" />
+
+  <link rel="stylesheet" href="{% static 'styles.css' %}?v={{ timestamp }}">
 </head>
 <body>
   <header class="header">
@@ -15,53 +22,63 @@
       <a class="header-logo" href="/">
         <img src="{% static 'imgs/header_logo.png' %}" alt="{% trans 'astro logo' %}" class="header-logo-image" width="50" height="50" loading="lazy" />
       </a>
-      <!--<nav class="header-menu">-->
-      <!--  <ul class="header-menu-list">-->
-      <!--    <li><a class="header-menu-link" href="/">{% trans "Home" %}</a></li>-->
-      <!--    <li><a class="header-menu-link" href="/">{% trans "About" %}</a></li>-->
-      <!--    <li><a class="header-menu-link" href="/">{% trans "Services" %}</a></li>-->
-      <!--  </ul>-->
-      <!--</nav>-->
+
       <div class="header-actions">
-        <button class="header-contact-button button" type="button">{% trans "Contact" %}</button>
-      </div>
+        <form action="{% url 'set_language' %}" method="post" id="langForm">
+              {% csrf_token %}
+              <input name="next" type="hidden" value="{{ request.path }}">
+              <input type="hidden" name="language" id="languageInput" value="{{ LANGUAGE_CODE }}">
+              <div class="custom-select">
+                <div class="custom-select__selected" id="selectedLang">
+                  {% if LANGUAGE_CODE == 'en' %}English{% elif LANGUAGE_CODE == 'ru' %}Русский{% else %}Svenska{% endif %}
+                </div>
+                <ul class="custom-select__options" id="langOptions">
+                  <li data-value="en">English</li>
+                  <li data-value="ru">Русский</li>
+                  <li data-value="sv">Svenska</li>
+                </ul>
+              </div>
+        </form>
+
+
+        </div>
     </div>
   </header>
 
-  <main class="container">
-    <section class="policy">
-      <h1>{% trans "Terms of Service" %}</h1>
-      <p>{% trans "Last updated:" %} May 9, 2025</p>
+<main class="container">
+  <section class="policy">
+    <h1 class="page-title">{% trans "Terms of Service" %}</h1>
+    <p>{% trans "Last updated:" %} May 9, 2025</p>
 
-      <h2>{% trans "1. Services Provided" %}</h2>
-      <p>{% trans "We provide digital astrology readings based on user-supplied information. Our services are for personal insight and entertainment only." %}</p>
+    <h2 class="section-heading">{% trans "1. Services Provided" %}</h2>
+    <p>{% trans "We provide digital astrology readings based on user-supplied information. Our services are for personal insight and entertainment only." %}</p>
 
-      <h2>{% trans "2. Booking and Payment" %}</h2>
-      <ul>
-        <li>{% trans "All readings are paid in advance via Stripe." %}</li>
-        <li>{% trans "Upon payment, you will receive confirmation by email." %}</li>
-        <li>{% trans "The reading will be delivered within 3–5 business days." %}</li>
-      </ul>
+    <h2 class="section-heading">{% trans "2. Booking and Payment" %}</h2>
+    <ul>
+      <li>{% trans "All readings are paid in advance via Stripe." %}</li>
+      <li>{% trans "Upon payment, you will receive confirmation by email." %}</li>
+      <li>{% trans "The reading will be delivered within 3–5 business days." %}</li>
+    </ul>
 
-      <h2>{% trans "3. Cancellations and Refunds" %}</h2>
-      <p>{% trans "Once work on your reading has started, refunds are not possible. If no work has begun, you may request a full refund within 24 hours of payment." %}</p>
+    <h2 class="section-heading">{% trans "3. Cancellations and Refunds" %}</h2>
+    <p>{% trans "Once work on your reading has started, refunds are not possible. If no work has begun, you may request a full refund within 24 hours of payment." %}</p>
 
-      <h2>{% trans "4. Limitations" %}</h2>
-      <ul>
-        <li>{% trans "We do not offer medical, legal, or financial advice." %}</li>
-        <li>{% trans "Readings are subjective and based on traditional astrological interpretations." %}</li>
-      </ul>
+    <h2 class="section-heading">{% trans "4. Limitations" %}</h2>
+    <ul>
+      <li>{% trans "We do not offer medical, legal, or financial advice." %}</li>
+      <li>{% trans "Readings are subjective and based on traditional astrological interpretations." %}</li>
+    </ul>
 
-      <h2>{% trans "5. Liability" %}</h2>
-      <p>{% trans "We are not liable for decisions made based on your astrology reading. You use our services at your own discretion." %}</p>
+    <h2 class="section-heading">{% trans "5. Liability" %}</h2>
+    <p>{% trans "We are not liable for decisions made based on your astrology reading. You use our services at your own discretion." %}</p>
 
-      <h2>{% trans "6. Modifications" %}</h2>
-      <p>{% trans "We reserve the right to update these terms. Continued use of our service means you accept the current terms." %}</p>
+    <h2 class="section-heading">{% trans "6. Modifications" %}</h2>
+    <p>{% trans "We reserve the right to update these terms. Continued use of our service means you accept the current terms." %}</p>
 
-      <h2>{% trans "7. Contact" %}</h2>
-      <p>{% trans "For any questions or concerns, please contact us at" %}: <a href="mailto:you@example.com">you@example.com</a></p>
-    </section>
-  </main>
+    <h2 class="section-heading">{% trans "7. Contact" %}</h2>
+    <p>{% trans "For any questions or concerns, please contact us at" %}: <a href="mailto:astrometrika@gmail.com">astrometrika@gmail.com</a></p>
+  </section>
+</main>
 
   <footer>
     <div class="footer-container">
@@ -74,5 +91,6 @@
       <p class="footer-copy">{% trans "Astro. All rights reserved." %}</p>
     </div>
   </footer>
+  <script src="{% static 'js/lang-select.js' %}"></script>
 </body>
 </html>

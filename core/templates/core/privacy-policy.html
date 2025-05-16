@@ -5,9 +5,18 @@
 <html lang="{{ LANGUAGE_CODE }}">
 <head>
   <meta charset="UTF-8">
+  <meta name="robots" content="noindex, nofollow">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{% trans "Privacy Policy – Astrometrika" %}</title>
-  <link rel="stylesheet" href="{% static 'styles.css' %}">
+
+  <link rel="icon" href="{% static 'icons/favicon.png' %}" type="image/x-icon">
+
+  <link rel="alternate" hreflang="en" href="https://www.astrometrika.com/en/privacy-policy/" />
+  <link rel="alternate" hreflang="ru" href="https://www.astrometrika.com/ru/privacy-policy/" />
+  <link rel="alternate" hreflang="sv" href="https://www.astrometrika.com/sv/privacy-policy/" />
+
+    <link rel="stylesheet" href="{% static 'styles.css' %}?v={{ timestamp }}">
+
 </head>
 <body>
   <header class="header">
@@ -15,63 +24,72 @@
       <a class="header-logo" href="/">
         <img src="{% static 'imgs/header_logo.png' %}" alt="{% trans 'astro logo' %}" class="header-logo-image" width="50" height="50" loading="lazy" />
       </a>
-      <!--<nav class="header-menu">-->
-      <!--  <ul class="header-menu-list">-->
-      <!--    <li><a class="header-menu-link" href="/">{% trans "Home" %}</a></li>-->
-      <!--    <li><a class="header-menu-link" href="/">{% trans "About" %}</a></li>-->
-      <!--    <li><a class="header-menu-link" href="/">{% trans "Services" %}</a></li>-->
-      <!--  </ul>-->
-      <!--</nav>-->
+
       <div class="header-actions">
-        <button class="header-contact-button button" type="button">{% trans "Contact" %}</button>
-      </div>
+        <form action="{% url 'set_language' %}" method="post" id="langForm">
+              {% csrf_token %}
+              <input name="next" type="hidden" value="{{ request.path }}">
+              <input type="hidden" name="language" id="languageInput" value="{{ LANGUAGE_CODE }}">
+              <div class="custom-select">
+                <div class="custom-select__selected" id="selectedLang">
+                  {% if LANGUAGE_CODE == 'en' %}English{% elif LANGUAGE_CODE == 'ru' %}Русский{% else %}Svenska{% endif %}
+                </div>
+                <ul class="custom-select__options" id="langOptions">
+                  <li data-value="en">English</li>
+                  <li data-value="ru">Русский</li>
+                  <li data-value="sv">Svenska</li>
+                </ul>
+              </div>
+        </form>
+
+
+        </div>
     </div>
   </header>
+<main class="container">
+  <section class="policy">
+    <h1 class="page-title">{% trans "Privacy Policy" %}</h1>
+    <p>{% trans "Last updated:" %} May 9, 2025</p>
 
-  <main class="container">
-    <section class="policy">
-      <h1>{% trans "Privacy Policy" %}</h1>
-      <p>{% trans "Last updated:" %} May 9, 2025</p>
+    <h2 class="section-heading">{% trans "1. Information We Collect" %}</h2>
+    <ul>
+      <li>{% trans "Your full name" %}</li>
+      <li>{% trans "Email address" %}</li>
+      <li>{% trans "Date and place of birth" %}</li>
+      <li>{% trans "Optional: Time of birth" %}</li>
+      <li>{% trans "Payment data (processed securely by Stripe)" %}</li>
+    </ul>
 
-      <h2>{% trans "1. Information We Collect" %}</h2>
-      <ul>
-        <li>{% trans "Your full name" %}</li>
-        <li>{% trans "Email address" %}</li>
-        <li>{% trans "Date and place of birth" %}</li>
-        <li>{% trans "Optional: Time of birth" %}</li>
-        <li>{% trans "Payment data (processed securely by Stripe)" %}</li>
-      </ul>
+    <h2 class="section-heading">{% trans "2. Purpose of Data Collection" %}</h2>
+    <p>{% trans "We collect your data to:" %}</p>
+    <ul>
+      <li>{% trans "Deliver personalized astrology readings" %}</li>
+      <li>{% trans "Communicate regarding your booking" %}</li>
+      <li>{% trans "Process payments through Stripe" %}</li>
+    </ul>
 
-      <h2>{% trans "2. Purpose of Data Collection" %}</h2>
-      <p>{% trans "We collect your data to:" %}</p>
-      <ul>
-        <li>{% trans "Deliver personalized astrology readings" %}</li>
-        <li>{% trans "Communicate regarding your booking" %}</li>
-        <li>{% trans "Process payments through Stripe" %}</li>
-      </ul>
+    <h2 class="section-heading">{% trans "3. Data Sharing" %}</h2>
+    <p>{% trans "We do not sell or rent your data. We share information only with:" %}</p>
+    <ul>
+      <li>{% trans "Stripe (payment processor)" %}</li>
+      <li>{% trans "Hosting and analytics providers" %}</li>
+    </ul>
 
-      <h2>{% trans "3. Data Sharing" %}</h2>
-      <p>{% trans "We do not sell or rent your data. We share information only with:" %}</p>
-      <ul>
-        <li>{% trans "Stripe (payment processor)" %}</li>
-        <li>{% trans "Hosting and analytics providers" %}</li>
-      </ul>
+    <h2 class="section-heading">{% trans "4. Your Rights (GDPR)" %}</h2>
+    <ul>
+      <li>{% trans "Access your data" %}</li>
+      <li>{% trans "Correct or delete your data" %}</li>
+      <li>{% trans "Withdraw consent at any time" %}</li>
+      <li>{% trans "Lodge a complaint with a supervisory authority" %}</li>
+    </ul>
 
-      <h2>{% trans "4. Your Rights (GDPR)" %}</h2>
-      <ul>
-        <li>{% trans "Access your data" %}</li>
-        <li>{% trans "Correct or delete your data" %}</li>
-        <li>{% trans "Withdraw consent at any time" %}</li>
-        <li>{% trans "Lodge a complaint with a supervisory authority" %}</li>
-      </ul>
+    <h2 class="section-heading">{% trans "5. Data Retention" %}</h2>
+    <p>{% trans "We retain your data for up to 12 months after the reading is delivered unless legally required to retain it longer." %}</p>
 
-      <h2>{% trans "5. Data Retention" %}</h2>
-      <p>{% trans "We retain your data for up to 12 months after the reading is delivered unless legally required to retain it longer." %}</p>
-
-      <h2>{% trans "6. Contact" %}</h2>
-      <p>{% trans "For any questions or concerns, please contact us at" %} <a href="mailto:you@example.com">you@example.com</a>.</p>
-    </section>
-  </main>
+    <h2 class="section-heading">{% trans "6. Contact" %}</h2>
+    <p>{% trans "For any questions or concerns, please contact us at" %} <a href="mailto:astrometrika@gmail.com">astrometrika@gmail.com</a>.</p>
+  </section>
+</main>
 
   <footer>
     <div class="footer-container">
@@ -84,5 +102,6 @@
       <p class="footer-copy">{% trans "Astro. All rights reserved." %}</p>
     </div>
   </footer>
+  <script src="{% static 'js/lang-select.js' %}"></script>
 </body>
 </html>

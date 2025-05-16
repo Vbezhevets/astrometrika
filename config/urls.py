@@ -6,13 +6,13 @@ from django.conf import settings
 from django.conf.urls.static import static
 from core import views
 
-# Пути без языкового префикса
+
 urlpatterns = [
     path('i18n/', include('django.conf.urls.i18n')),
     path('robots.txt', RedirectView.as_view(url='/static/robots.txt', permanent=True)),
 ]
 
-# Пути с поддержкой префикса языка
+
 urlpatterns += i18n_patterns(
     path('admin/', admin.site.urls),
     path('', views.index, name='index'),
@@ -22,7 +22,6 @@ urlpatterns += i18n_patterns(
 )
 
 
-# Статика (только в режиме разработки)
 urlpatterns += static(
     settings.STATIC_URL,
     document_root=settings.STATICFILES_DIRS[0] if settings.STATICFILES_DIRS else settings.STATIC_ROOT

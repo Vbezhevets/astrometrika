@@ -181,11 +181,18 @@ h1 {
       font-weight:  500;
       font-family: var(--font-family-accent);
       line-height:  .75;
-      font-size: 96px;
+      font-size: 90px;
+}
+h2 {
+      font-weight:  500;
+      font-family: var(--font-family-accent);
+      line-height:  .75;
+      font-size: 48px;
 }
 html[lang="ru"] h1 {
     font-size: 82px;
 }
+
 h3 {
     margin-top: 16px;
 }
@@ -250,12 +257,24 @@ h3 {
     margin-inline: auto;
     padding-inline: var(--container-padding-x);
   }
-.header-logo {
-    flex-shrink: 0;
+/*.header-logo {*/
+/*    flex-shrink: 0;*/
+/*}*/
+
+.header-logo-svg {
+  height: 60px;
+  width: auto;
+  aspect-ratio: 1 / 1.41; /* ориентировочно для A4 */
+  display: block;
 }
-.header-logo-image {
-    filter: brightness(1.24);
-  }
+/*.header-logo-image {*/
+/*    filter: brightness(1.24);*/
+/*     max-height: 50px;*/
+/*  height: auto;*/
+/*  width: auto;*/
+/*  object-fit: contain;*/
+/*  display: block;*/
+/*  }*/
 
 .header-actions {
     display: flex;
@@ -546,12 +565,109 @@ input[type="time"]::-webkit-calendar-picker-indicator {
   background-color: rgba(255, 255, 255, 0.05);
   color: var(--color-white);
 }
+
+.input-icon-wrapper {
+  position: relative;
+}
+
+.input-icon-wrapper input {
+  width: 100%;
+  padding-right: 40px;
+}
+
+.location-icon {
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 20px;
+  pointer-events: none;
+  filter: brightness(0) invert(1);
+}
+
+.pay-button {
+  padding: 16px 30px;
+  font-size: 18px;
+  font-weight: 500;
+  margin: 12px;
+  border-radius: var(--border-radius);
+  border: var(--border);
+  background-color: var(--color-semidark);
+  color: var(--color-light);
+  transition: background-color 0.3s ease, color 0.3s ease;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pay-button:hover {
+  background-color: var(--color-white);
+  color: var(--color-semidark);
+}
+
+/*.stripe-button {*/
+/*  background-color: #5a67d8;*/
+/*}*/
+
+.stripe-button:hover {
+  background-color: #7c83e5;
+  color: var(--color-white);
+}
+.pay-button img {
+  filter: brightness(0) invert(1);
+}
+/*.wise-button {*/
+/*  background-color: #00b9ff;*/
+/*}*/
+
+.wise-button:hover {
+  background-color: #40cbff;
+  color: var(--color-dark);
+}
+.page-title {
+  font-size: 64px;
+  font-weight: 500;
+  font-family: var(--font-family-accent);
+  line-height: 1.1;
+  text-align: center;
+}
+
+.section-heading {
+  font-size: 36px;
+  font-weight: 400;
+  font-family: var(--font-family-accent);
+  line-height: 1.2;
+  margin-top: 30px;
+  text-align: center;
+}
 @media (max-width: 768px) {
+
+.footer-menu-link {
+
+    font-size:15px;
+}
     html[lang="ru"] h1{
     font-size: 42px;
 }
     html[lang="ru"] h2{
     font-size: 42px;
+}
+
+.page-title {
+  font-size: 28px;
+}
+
+.section-heading {
+  font-size: 22px;
+}
+
+html[lang="ru"] .page-title {
+  font-size: 24px;
+}
+
+html[lang="ru"] .section-heading {
+  font-size: 20px;
 }
   .container {
     max-width: none;
@@ -561,6 +677,7 @@ input[type="time"]::-webkit-calendar-picker-indicator {
   max-width: none;
   padding-inline: 10px;
  }
+
 
 
   .hero {
@@ -620,6 +737,11 @@ input[type="time"]::-webkit-calendar-picker-indicator {
   .booking-subtitle {
     text-align: center;
   }
+
+  .location-icon {
+  display:none;
+}
+
 #booking {
   scroll-margin-top: -50px;
 }
@@ -658,6 +780,16 @@ input[type="time"]::-webkit-calendar-picker-indicator {
   }
 }
 
+#paymentOptions {
+  opacity: 0;
+  transition: opacity 0.8s ease;
+  display: none;
+}
+
+#paymentOptions.show {
+  display: block;
+  opacity: 1;
+}
 
 body {
   margin: 0;
@@ -685,11 +817,14 @@ body {
   animation: blink 2s infinite ease-in-out;
 }
 
+
 /* Анимация мерцания */
 @keyframes blink {
   0%, 100% { opacity: 0; }
   50% { opacity: 1; }
 }
+
+
 
 /** {*/
 /*  outline: 1px solid red;*/

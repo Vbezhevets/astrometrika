@@ -10,7 +10,7 @@
            style="display: inline-block;" />
     </div>
 
-    <h2 style="margin-top: 0;">{% blocktrans %}Thank you, {{ full_name }}!{% endblocktrans %}</h2>
+    <h2 style="margin-top: 0;">{% blocktrans with full_name=full_name %}Thank you, {{ full_name }}!{% endblocktrans %}</h2>
     <p>{% trans "We have received your astrology request and will contact you shortly." %}</p>
     <p style="margin-top: 30px; font-size: 0.9em; color: #777;">Astrometrika ✦ www.astrometrika.com</p>
   </body>

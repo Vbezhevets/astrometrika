@@ -80,16 +80,14 @@ msgstr "Новая запись от %(name)s"
 msgid "Your astrology request was received"
 msgstr "Ваша заявка на консультацию получена"
 
-msgid "Thank you %(name)s, we received your astrology request!"
-msgstr "Спасибо, %(name)s! Мы получили вашу заявку на астрологическую консультацию."
-
 msgid "We have received your astrology request and will contact you shortly."
 msgstr "Мы получили вашу заявку на астрологическую консультацию и скоро свяжемся с вами."
 
-msgid "Thank you, {{ full_name }}!"
-msgstr "Спасибо, {{ full_name }}!"
+msgid "Thank you, %(full_name)s!"
+msgstr "Спасибо, %(full_name)s!"
 
-
+msgid "Astrometrika. All rights reserved."
+msgstr "Астрометрика. Все права защищены."
 
 msgid "Privacy Policy"
 msgstr "Политика конфиденциальности"
@@ -237,3 +235,4 @@ msgstr "6. Изменения"
 
 msgid "We reserve the right to update these terms. Continued use of our service means you accept the current terms."
 msgstr "Мы оставляем за собой право изменять условия. Продолжение использования означает согласие с актуальными условиями."
+
