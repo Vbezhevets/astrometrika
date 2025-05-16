@@ -641,7 +641,138 @@ input[type="time"]::-webkit-calendar-picker-indicator {
   margin-top: 30px;
   text-align: center;
 }
+.modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 20px;
+  animation: fadeIn 0.3s ease forwards;
+
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+}
+
+.modal.show {
+  display: flex;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modal-content {
+  transform: translateY(40px);
+  opacity: 0;
+  transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+.modal.show .modal-content {
+  transform: translateY(0);
+  opacity: 1;
+}
+.close-button {
+  position: absolute;
+  top: 16px;
+  right: 20px;
+  font-size: 24px;
+  cursor: pointer;
+  color: var(--color-light);
+  transition: color 0.3s ease;
+  padding: 4px 8px;
+  z-index: 10;
+}
+
+.close-button:hover {
+  color: var(--color-white);
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+.modal-content {
+  background: var(--color-dark);
+  color: var(--color-light);
+  border-radius: var(--border-radius);
+  border: var(--border);
+  padding: 40px 30px;
+  width: 100%;
+  max-width: 520px;
+  text-align: center;
+  font-family: var(--font-family-base);
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.5);
+  position: relative;
+  transform: translateY(20px);
+  animation: slideIn 0.3s ease forwards;
+}
+
+@keyframes slideIn {
+  0% {
+    transform: translateY(40px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+.copy-btn {
+  background: transparent;
+  border: none;
+  color: var(--color-light);
+  cursor: pointer;
+  font-size: 1em;
+  margin-left: 8px;
+  padding: 4px;
+  transition: color 0.3s ease;
+}
+
+.copy-btn:hover {
+  color: var(--color-white);
+}
 @media (max-width: 768px) {
+
+  .modal {
+    align-items: flex-end;
+    padding: 0;
+  }
+
+  .modal-content {
+    width: 100%;
+    border-radius: 20px 20px 0 0;
+    padding: 24px 20px;
+    animation: slideUp 0.4s ease;
+  }
+
+  @keyframes slideUp {
+    0% {
+      transform: translateY(100%);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0%);
+      opacity: 1;
+    }
+  }
+
+  .modal-content h3 {
+    font-size: 24px;
+  }
+
+  .pay-button {
+    font-size: 16px;
+    padding: 14px 20px;
+    margin: 8px auto;
+  }
+
+  #manualDetails {
+    font-size: 14px;
+    padding: 16px;
+  }
 
 .footer-menu-link {
 

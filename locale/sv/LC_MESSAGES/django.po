@@ -46,11 +46,18 @@ msgstr "t.ex. kärlek, karriär, andlig utveckling..."
 msgid "0 / 1000 characters"
 msgstr "0 / 1000 tecken"
 
+
 msgid "Submit Request"
 msgstr "Skicka förfrågan"
 
 msgid "Your request has been sent! I will contact you soon."
 msgstr "Din förfrågan har skickats! Jag kommer att kontakta dig snart."
+
+msgid "Choose your payment method"
+msgstr "Välj din betalningsmetod"
+
+msgid "Manual Bank Transfer"
+msgstr "Manuell banköverföring"
 
 # Email
 msgid "New Astrology Booking"
@@ -80,16 +87,18 @@ msgstr "Ny bokning från %(name)s"
 msgid "Your astrology request was received"
 msgstr "Din astrologiförfrågan har mottagits"
 
-msgid "Thank you %(name)s, we received your astrology request!"
-msgstr "Tack %(name)s, vi har mottagit din astrologibokning!"
+msgid "We received your astrology request!"
+msgstr "Vi har mottagit din astrologibokning!"
 
 msgid "We have received your astrology request and will contact you shortly."
 msgstr "Vi har mottagit din astrologiska förfrågan och kommer att kontakta dig snart."
 
-msgid "Thank you, {{ full_name }}!"
-msgstr "Tack, {{ full_name }}!"
 
+msgid "Astrometrika. All rights reserved."
+msgstr "Astrometrika. Alla rättigheter förbehållna."
 
+msgid "Thank you, %(full_name)s!"
+msgstr "Tack, %(full_name)s!"
 
 
 msgid "Privacy Policy"

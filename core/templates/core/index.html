@@ -172,102 +172,46 @@
   </footer>
   <div class="stars"></div>
 
+<div id="paymentModal" class="modal">
+  <div class="modal-content">
+    <span class="close-button">&times;</span>
+    <h3>{% trans "Choose your payment method" %}</h3>
+    <div class="payment-options">
+      <a href="https://wise.com/pay/business/astrometrika" target="_blank" class="button pay-button">Wise</a>
+      <a href="https://buy.stripe.com/dR6g1O9sh5wC2dO288" target="_blank" class="button pay-button">Stripe</a>
+      <button id="manualDetailsButton" class="button pay-button">{% trans "Manual Bank Transfer" %}</button>
+    </div>
+    <div id="manualDetails" style="display: none; margin-top: 20px; text-align: left;">
+        <ul class="copy-list">
+          <li><strong>{% trans "Reference" %}:</strong>
+            <span class="copy-text">{{ payment_details.reference }}</span>
+            <button class="copy-btn" data-copy="{{ payment_details.reference }}">📋</button>
+          </li>
+          <li><strong>{% trans "Account name" %}:</strong>
+            <span class="copy-text">{{ payment_details.account_name }}</span>
+            <button class="copy-btn" data-copy="{{ payment_details.account_name }}">📋</button>
+          </li>
+          <li><strong>SWIFT/BIC:</strong>
+            <span class="copy-text">{{ payment_details.swift }}</span>
+            <button class="copy-btn" data-copy="{{ payment_details.swift }}">📋</button>
+          </li>
+          <li><strong>{% trans "Account number" %}:</strong>
+            <span class="copy-text">{{ payment_details.account_number }}</span>
+            <button class="copy-btn" data-copy="{{ payment_details.account_number }}">📋</button>
+          </li>
+          <li><strong>{% trans "Bank address" %}:</strong>
+            <span class="copy-text">{{ payment_details.bank_address }}</span>
+            <button class="copy-btn" data-copy="{{ payment_details.bank_address }}">📋</button>
+          </li>
+        </ul>
+    </div>
+  </div>
+</div>
   <script src="{% static 'js/lang-select.js' %}?v={{ timestamp }}"></script>
-  <script>
-   // Booking form
-  const bookingForm = document.getElementById('bookingForm');
-  const confirmation = document.getElementById('confirmationMessage');
 
-  bookingForm.addEventListener('submit', function (e) {
-    e.preventDefault();
+    <script src="{% static 'js/stars.js' %}"></script>
+    <script src="{% static 'js/form.js' %}"></script>
+    <script src="{% static 'js/modal.js' %}"></script>
 
-    const formData = {
-      fullName: bookingForm.fullName.value,
-      email: bookingForm.email.value,
-      birthDate: bookingForm.birthDate.value,
-      birthTime: bookingForm.birthTime.value,
-      birthPlace: bookingForm.birthPlace.value,
-      focusArea: bookingForm.focusArea.value
-    };
-
-    fetch("{% url 'send_booking_request' %}", {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'X-CSRFToken': getCookie('csrftoken'),
-      },
-      body: JSON.stringify(formData)
-    })
-    .then(response => {
-      if (!response.ok) throw new Error('Network error');
-      return response.json();
-    })
-    .then(data => {
-      if (data.status === 'ok') {
-        bookingForm.reset();
-        confirmation.style.display = 'block';
-       const paymentBlock = document.getElementById('paymentOptions');
-        paymentBlock.style.display = 'block';
-        setTimeout(() => {
-          paymentBlock.classList.add('show');
-        }, 10);
-
-        // setTimeout(() => {
-        //   confirmation.style.display = 'none';
-        // }, 5000);
-      } else {
-        alert('Something went wrong. Try again.');
-      }
-    })
-    .catch(error => {
-      alert('An error occurred: ' + error.message);
-    });
-  });
-
-  function getCookie(name) {
-    let cookieValue = null;
-    if (document.cookie && document.cookie !== '') {
-      const cookies = document.cookie.split(';');
-      for (let i = 0; i < cookies.length; i++) {
-        const cookie = cookies[i].trim();
-        if (cookie.substring(0, name.length + 1) === (name + '=')) {
-          cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
-          break;
-        }
-      }
-    }
-    return cookieValue;
-  }
-
-  // Character count
-  const focusAreaInput = document.getElementById('focusArea');
-  const charCountDisplay = document.getElementById('charCount');
-
-  focusAreaInput.addEventListener('input', function () {
-    const length = focusAreaInput.value.length;
-    charCountDisplay.textContent = `${length} / 1000 characters`;
-  });
-
-  // Stars
-  const starsContainer = document.querySelector('.stars');
-
-  for (let i = 0; i < 100; i++) {
-    const star = document.createElement('div');
-    star.classList.add('star');
-
-    const x = Math.random() * 100;
-    const y = Math.random() * 100;
-    const delay = Math.random() * 5;
-    const duration = 1.5 + Math.random() * 3;
-
-    star.style.left = `${x}vw`;
-    star.style.top = `${y}vh`;
-    star.style.animationDelay = `${delay}s`;
-    star.style.animationDuration = `${duration}s`;
-
-    starsContainer.appendChild(star);
-  }
-
-</script>
 </body>
 </html>

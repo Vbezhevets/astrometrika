@@ -86,6 +86,12 @@ msgstr "Мы получили вашу заявку на астрологиче�
 msgid "Thank you, %(full_name)s!"
 msgstr "Спасибо, %(full_name)s!"
 
+msgid "Choose your payment method"
+msgstr "Выберите способ оплаты"
+
+msgid "Manual Bank Transfer"
+msgstr "Ручной банковский перевод"
+
 msgid "Astrometrika. All rights reserved."
 msgstr "Астрометрика. Все права защищены."
 

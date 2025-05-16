@@ -12,6 +12,21 @@ from datetime import datetime
 import json
 
 
+from django.http import HttpResponse
+
+def test_mail(request):
+    try:
+        send_mail(
+            'Django Test',
+            'Это тестовое письмо от Django.',
+            'astrometrika@gmail.com',
+            ['astrometrika@gmail.com'],
+            fail_silently=False,
+        )
+        return HttpResponse("✅ Письмо отправлено успешно.")
+    except Exception as e:
+        return HttpResponse(f"❌ Ошибка: {e}")
+
 def index(request):
     context = {
         'timestamp': datetime.now().timestamp()
@@ -39,9 +54,6 @@ def notify_admin(full_name, email, birth_date, birth_time, birth_place, focus_ar
     html_message = render_to_string('core/emails/booking_admin.html', context)
     plain_message = strip_tags(html_message)
 
-    # import os
-    # print("EMAIL_HOST_USER:", repr(os.environ.get("EMAIL_HOST_USER")))
-    # print("EMAIL_HOST_PASSWORD:", repr(os.environ.get("EMAIL_HOST_PASSWORD")))
 
 
     subject=subject,
