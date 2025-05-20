@@ -2,52 +2,65 @@ document.addEventListener("DOMContentLoaded", function () {
   console.log('modal.js loaded');
 
   const modal = document.getElementById('paymentModal');
+  const closeBtn = modal?.querySelector('.close-button');
+  const editBtn = document.getElementById('editForm');
+  const proceedBtn = document.getElementById('proceedPayment');
+  const bookingSection = document.getElementById('booking');
+
   if (!modal) return;
 
-  const closeBtn = modal.querySelector('.close-button');
-  const manualBtn = document.getElementById('manualDetailsButton');
-  const manualDetails = document.getElementById('manualDetails');
-
-
-  if (window.location.hash === '#paymentModal') {
-    modal.classList.add('show');
-    if (window.history.replaceState) {
-      window.history.replaceState(null, null, window.location.pathname);
-    }
-  }
-
-
-  closeBtn?.addEventListener('click', () => modal.classList.remove('show'));
-
+  closeBtn?.addEventListener('click', () => {
+    modal.classList.remove('show');
+    bookingSection?.scrollIntoView({ behavior: 'smooth' });
+  });
 
   window.addEventListener('click', (e) => {
     if (e.target === modal) {
       modal.classList.remove('show');
+      bookingSection?.scrollIntoView({ behavior: 'smooth' });
     }
   });
-
 
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && modal.classList.contains('show')) {
       modal.classList.remove('show');
+      bookingSection?.scrollIntoView({ behavior: 'smooth' });
     }
   });
 
-
-  manualBtn?.addEventListener('click', () => {
-    manualDetails.style.display = 'block';
+  editBtn?.addEventListener('click', () => {
+    modal.classList.remove('show');
+    bookingSection?.scrollIntoView({ behavior: 'smooth' });
   });
 
+  proceedBtn?.addEventListener('click', () => {
+    const checkoutUrl = window.CHECKOUT_URL || "/create-checkout-session/";
 
-  document.addEventListener('click', function (e) {
-    if (e.target.classList.contains('copy-btn')) {
-      const text = e.target.getAttribute('data-copy');
-      navigator.clipboard.writeText(text).then(() => {
-        e.target.textContent = '✅';
-        setTimeout(() => {
-          e.target.textContent = '📋';
-        }, 1500);
-      });
-    }
+    fetch(checkoutUrl, {
+      method: "POST",
+      body: new FormData(document.getElementById("bookingForm"))
+    })
+    .then(res => {
+      if (!res.ok) {
+        return res.text().then(text => {
+          console.error("❌ Server returned error HTML:", text);
+          throw new Error(`Server error ${res.status}`);
+        });
+      }
+      return res.json();
+    })
+    .then(data => {
+      console.log("✅ Ответ от сервера:", data);
+      if (data.checkout_url) {
+        window.location.href = data.checkout_url;
+      } else {
+        console.error("⚠️ checkout_url не пришёл:", data);
+        alert("Ошибка: не удалось создать ссылку для оплаты.");
+      }
+    })
+    .catch(err => {
+      console.error("💥 Fetch ошибка:", err);
+      alert("Произошла ошибка. Попробуйте позже.");
+    });
   });
 });

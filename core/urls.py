@@ -1,13 +1,17 @@
 from django.urls import path
 from . import views
-from .views import test_mail
 
 urlpatterns = [
     path('', views.index),
-    path('send_booking_request/', views.send_booking_request, name='send_booking_request'),
+
     path('privacy-policy/', views.privacy_policy, name='privacy-policy'),
     path('terms-of-service/', views.terms_of_service, name='terms-of-service'),
-    path('test-mail/', test_mail),
+    path('test-mail/', views.test_mail),
+
+    path('create-checkout-session/', views.create_checkout_session, name='create-checkout-session'),
+    path('success/', views.success_page, name='payment-success'),
+    path('cancel/', views.cancel_page, name='payment-cancel'),
+
 ]
 
 

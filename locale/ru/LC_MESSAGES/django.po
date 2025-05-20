@@ -3,7 +3,15 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Language: ru\n"
 
-# Главная
+msgid "Payment Cancelled"
+msgstr "Платёж отменён"
+
+msgid "Payment was not completed"
+msgstr "Платёж не был завершён"
+
+msgid "You can go back and try again when you're ready."
+msgstr "Вы можете вернуться и попробовать снова, когда будете готовы."
+
 msgid "Astrology Readings"
 msgstr "Астрологические консультации"
 
@@ -22,8 +30,17 @@ msgstr "Портрет астролога"
 msgid "Please fill out the form below to schedule your personalized astrology session. I will reach out to confirm the details."
 msgstr "Пожалуйста, заполните форму ниже, чтобы записаться на персональную астрологическую сессию. Я свяжусь с вами для подтверждения деталей."
 
-msgid "Full Name"
-msgstr "Полное имя"
+msgid "Payment Successful"
+msgstr "Оплата прошла успешно"
+
+msgid "Thank you for your payment!"
+msgstr "Спасибо за вашу оплату!"
+
+msgid "We have received your astrology request. We will contact you shortly by email."
+msgstr "Мы получили ваш астрологический запрос. Мы свяжемся с вами по электронной почте в ближайшее время."
+
+msgid "Back to main page"
+msgstr "Вернуться на главную страницу"
 
 msgid "Email Address"
 msgstr "Электронная почта"
@@ -90,7 +107,7 @@ msgid "Choose your payment method"
 msgstr "Выберите способ оплаты"
 
 msgid "Manual Bank Transfer"
-msgstr "Ручной банковский перевод"
+msgstr "Оплата по реквизитам"
 
 msgid "Astrometrika. All rights reserved."
 msgstr "Астрометрика. Все права защищены."
@@ -242,3 +259,114 @@ msgstr "6. Изменения"
 msgid "We reserve the right to update these terms. Continued use of our service means you accept the current terms."
 msgstr "Мы оставляем за собой право изменять условия. Продолжение использования означает согласие с актуальными условиями."
 
+msgid "Payment by bank card"
+msgstr "банковской картой"
+
+
+
+msgid "Reference"
+msgstr "Назначение платежа"
+
+msgid "Account name"
+msgstr "Имя получателя"
+
+msgid "Account number"
+msgstr "Номер счёта"
+
+msgid "Bank address"
+msgstr "Адрес банка"
+
+
+msgid "Proceed to Payment"
+msgstr "Перейти к оплате"
+
+msgid "Edit Information"
+msgstr "Внести изменения"
+
+msgid "Confirm Your Details"
+msgstr "Подтвердите введённые данные"
+
+
+msgid "Topic of the Reading"
+msgstr "Тематика разбора"
+
+msgid "Natal Chart – personality, talents, inner resources"
+msgstr "Натальная карта — личность, таланты, внутренние ресурсы"
+
+msgid "Relationships – personal life, partnership, couple dynamics"
+msgstr "Отношения — личная жизнь, партнёрство, динамика в паре"
+
+msgid "Career and Vocation – development, direction change"
+msgstr "Работа и призвание — карьера, развитие, смена направления"
+
+msgid "Relocation – potential, adaptation abroad"
+msgstr "Переезд, эмиграция — потенциал перемен, адаптация"
+
+msgid "Finances – money flow, material realization"
+msgstr "Финансы — денежный поток, материальная реализация"
+
+msgid "Current situation (transits) – ongoing events and challenges"
+msgstr "Текущее состояние (транзиты) — что происходит сейчас, с чем связаны сложности"
+
+msgid "Solar return – annual themes and opportunities"
+msgstr "Соляр (прогноз на год) — ключевые темы и возможности ближайшего года"
+
+msgid "Child's chart – character, needs, development"
+msgstr "Детский гороскоп — характер, потребности, направление развития"
+
+msgid "Planning (Choosing a date) – project, wedding, event"
+msgstr "Планирование (выбор даты) — запуск проекта, свадьба, важное событие"
+
+msgid "Your own topic or question (add comment below)"
+msgstr "Своя тема или вопрос — (добавьте комментарий ниже)"
+
+msgid "Comment / Your question: Tell me briefly about yourself or your situation — it will help me prepare a more accurate reading (optional)"
+msgstr "Комментарий / Ваш вопрос: Расскажите немного о себе или ситуации — это поможет сделать разбор более точным (по желанию)"
+
+msgid "Where are you located now (city and country)"
+msgstr "Где вы находитесь сейчас (город и страна)"
+
+msgid "Required for predictive astrology (current place of residence)"
+msgstr "Нужно для учёта актуального местоположения в прогностике"
+
+msgid "Personal written astrology reading"
+msgstr "Индивидуальный астрологический анализ в письменном формате"
+
+msgid "Understanding yourself is the first step to confident decisions."
+msgstr "Понимание себя — первый шаг к уверенным решениям."
+
+msgid "The analysis will provide clarity in personal and professional matters, support at your current stage, and guidance for the future."
+msgstr "Анализ даст ясность в личных и профессиональных вопросах, опору на текущем этапе и ориентиры на будущее."
+
+msgid "Order Now"
+msgstr "Заказать"
+
+msgid "Astrological Analysis"
+msgstr "Астрологический анализ"
+
+msgid "Order an Analysis"
+msgstr "Заказать анализ"
+
+msgid "Enter your name, how you would like to be addressed"
+msgstr "Введите имя, как к вам обращаться"
+
+msgid "Email:"
+msgstr "Email:"
+
+msgid "For confirming your order and sending the completed reading"
+msgstr "Для подтверждения заказа и отправки готового анализа"
+
+msgid "Please fill out the form below to request your personalized written astrological analysis"
+msgstr "Пожалуйста, заполните форму ниже, чтобы заказать ваш индивидуальный письменный астрологический анализ"
+
+msgid "Order Astrological Analysis"
+msgstr "Заказать астрологический анализ"
+
+msgid "Understanding yourself is the first step toward confident decisions. The analysis provides clarity in personal and professional matters, support at your current stage, and guidance for the future."
+msgstr "Понимание себя — первый шаг к уверенным решениям. Анализ даст ясность в личных и профессиональных вопросах, опору на текущем этапе и ориентиры на будущее."
+
+msgid "Personalized Astrological Analysis in Written Format"
+msgstr "Индивидуальный астрологический анализ в письменном формате"
+
+msgid "Your Name"
+msgstr "Ваше имя"

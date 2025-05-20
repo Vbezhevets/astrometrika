@@ -232,14 +232,7 @@ h3 {
 
 
 }
-/* .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    column-gap: 20px;
-    height: 90px;
-    padding-inline: var(--container-padding-x);
-} */
+
 .header {
   /* background-color: rgba(77, 55, 78, 0.2); */
 
@@ -267,14 +260,7 @@ h3 {
   aspect-ratio: 1 / 1.41; /* ориентировочно для A4 */
   display: block;
 }
-/*.header-logo-image {*/
-/*    filter: brightness(1.24);*/
-/*     max-height: 50px;*/
-/*  height: auto;*/
-/*  width: auto;*/
-/*  object-fit: contain;*/
-/*  display: block;*/
-/*  }*/
+
 
 .header-actions {
     display: flex;
@@ -333,16 +319,6 @@ footer {
   margin: 0;
   color: var(--color-light);
 }
-.hero {
-    height: 100vh;
-    flex-direction: row;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 40px; /* расстояние между текстом и картинкой */
-    flex-wrap: wrap; /* чтобы на мобилке оно уходило вниз */
-    margin-top: 0px;
-  }
 
   .info {
     flex: 1 1 50%;
@@ -361,35 +337,44 @@ footer {
     margin-bottom: 28px;
   }
 
+.hero {
+    min-height: 100vh;
+    padding-block: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  flex-wrap: nowrap;
+}
+
+
 
 .image-container {
-    flex: 1 1 40%;
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
-    min-height: 400px;
-
-    position: relative;
+  flex: 1 1 auto;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  min-height: 400px;
+  position: relative;
 }
 
-  .image-container::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 100px;
-    background: linear-gradient(to bottom, transparent 0%, var(--color-dark) 100%);
-    pointer-events: none;
-  }
-
-   .portrait {
-    max-height: 100%;
-    height: auto;
-    object-fit: contain;
-    mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
-    -webkit-mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
+/*.portrait {*/
+/*  width: 100%;*/
+/*  height: auto;*/
+/*  object-fit: contain;*/
+/*  max-width: 100%;*/
+/*  mask-image: linear-gradient(to bottom, black 85%, transparent 100%);*/
+/*  -webkit-mask-image: linear-gradient(to bottom, black 85%, transparent 100%);*/
+/*  transition: all 0.3s ease;*/
+/*}*/
+.portrait {
+  width: 100%;
+  max-width: clamp(280px, 40vw, 520px);
+  height: auto;
+  object-fit: contain;
+  transition: all 0.3s ease;
 }
+
 .booking-section {
   padding: 80px 20px;
   background-color: rgba(77, 55, 78, 0.2);
@@ -473,10 +458,10 @@ input[type="time"]::-webkit-calendar-picker-indicator {
 
 .submit-button {
 
+  margin: 24px auto 0 auto;
   padding: 16px;
   transition: background 0.3s ease;
   width: fit-content;
-  margin: 0 auto;
 }
 
 .form-row {
@@ -581,10 +566,26 @@ input[type="time"]::-webkit-calendar-picker-indicator {
   top: 50%;
   transform: translateY(-50%);
   height: 20px;
+  right:8px;
   pointer-events: none;
-  filter: brightness(0) invert(1);
-}
+  filter: brightness(0.8) contrast(0.8) invert(1);
+  .location-icon {
+  filter: brightness(0) saturate(100%) invert(92%) sepia(17%) saturate(379%) hue-rotate(323deg) brightness(91%) contrast(92%);
+ }
 
+ .input-icon {
+  color: var(--color-light);
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 18px;
+  pointer-events: none;
+ }
+}
+.location-input {
+  margin-bottom: 20px;
+}
 .pay-button {
   padding: 16px 30px;
   font-size: 18px;
@@ -655,6 +656,15 @@ input[type="time"]::-webkit-calendar-picker-indicator {
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.4s ease;
+}
+.input-icon {
+  display: block;
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 18px;
+  pointer-events: none;
 }
 
 .modal.show {
@@ -734,7 +744,117 @@ input[type="time"]::-webkit-calendar-picker-indicator {
 .copy-btn:hover {
   color: var(--color-white);
 }
+
+.input-icon-wrapper {
+  position: relative;
+}
+
+.input-icon-wrapper input {
+  width: 100%;
+  padding-right: 30px; /* пространство под иконку */
+}
+
+.input-icon {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 18px;
+  pointer-events: none;
+}
+
+
+.input-icon{
+    display: block;
+}
+
+
+
+
+
+.reading-topics label {
+  display: flex;
+  text-align: left;
+  margin-bottom: 16px;
+  font-size: 1em;
+  color: var(--color-light); /* как везде на сайте */
+  cursor: pointer;
+  line-height: 1.4; /* уменьшает высоту строки */
+  transition: color 0.3s ease;
+}
+
+.reading-topics label:hover {
+  color: var(--color-white); /* эффект наведения */
+}
+
+.reading-topics input[type="radio"] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 18px;
+  height: 18px;
+  border: 1.5px solid #C0B28E;
+  border-radius: 50%;
+  margin-right: 10px;
+  position: relative;
+  cursor: pointer;
+  background: transparent;
+  display: inline-block;
+  vertical-align: middle;
+  transition: border-color 0.3s ease;
+}
+
+.reading-topics input[type="radio"]:hover {
+  border-color: var(--color-white); /* граница меняется при наведении */
+}
+
+.reading-topics input[type="radio"]:checked::before {
+  content: "";
+  display: block;
+  width: 10px;
+  height: 10px;
+  background: #C0B28E;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+
+}
+@media (max-width: 1100px) {
+    h1 {
+        font-size: 62px;
+    }
+    h2 {
+        font-size: 52px;
+    }
+        html[lang="ru"] h1{
+    font-size: 52px;
+    }
+    html[lang="ru"] h2{
+    font-size: 42px;
+   }
+}
+
 @media (max-width: 768px) {
+
+  .hero {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+
+  .image-container {
+    max-width: 100%;
+    margin-top: 20px;
+  }
+
+  .portrait {
+    max-width: 400px;
+    width: 100%;
+    height: auto;
+  }
 
   .modal {
     align-items: flex-end;
@@ -811,34 +931,18 @@ html[lang="ru"] .section-heading {
 
 
 
-  .hero {
-    /*margin-top: 40px;*/
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-    height: auto;
-    margin-bottom: 40px;
-  }
 
-  .image-container {
-    width: 100%;
-    max-width: 500px;
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
-    min-height: 300px;
-    position: relative;
-    margin-top: 20px;
-  }
+.image-container {
+  flex: 1 1 40%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  min-height: 400px;
+  position: relative;
+  max-width: 100%; /* добавлено */
+  min-width: 0; /* защита от флексов */
+}
 
-  .portrait {
-    display: block;
-    width: 100%;
-    max-height: 400px;
-    height: auto;
-    object-fit: contain;
-    margin: 0 auto;
-  }
 
 
   .info {
@@ -869,9 +973,7 @@ html[lang="ru"] .section-heading {
     text-align: center;
   }
 
-  .location-icon {
-  display:none;
-}
+
 
 #booking {
   scroll-margin-top: -50px;
@@ -893,6 +995,7 @@ html[lang="ru"] .section-heading {
 
 /* Маленькие экраны */
 @media (max-width: 520px) {
+
   h1, h2 {
     text-align: center;
     font-size: 60px;
@@ -929,6 +1032,10 @@ body {
   overflow-y: auto;
 }
 
+
+
+
+
 .stars {
   position: fixed;
   top: 0; left: 0;
@@ -955,8 +1062,100 @@ body {
   50% { opacity: 1; }
 }
 
+.success-message {
+  background-color: var(--color-dark);
+  border: 1px solid var(--color-light);
+  padding: 40px;
+  border-radius: 12px;
+  max-width: 600px;
+  margin: 100px auto;
+  text-align: center;
+  color: var(--color-light);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+  font-size: 20px;
+}
+
+.success-message h1 {
+  font-size: 36px;
+  margin-bottom: 20px;
+  line-height: 1.2;
+}
+
+.success-message p {
+  font-size: 18px;
+  margin-bottom: 24px;
+}
+
+.success-message a {
+  font-size: 18px;
+  padding: 14px 24px;
+  display: inline-block;
+  background-color: var(--color-semidark);
+  color: var(--color-light);
+  border-radius: var(--border-radius);
+  border: var(--border);
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.success-message a:hover {
+  background-color: var(--color-white);
+  color: var(--color-semidark);
+}
+
+.cancel-message {
+  background-color: #550000;
+  border: 1px solid #e8d9c6;
+  padding: 40px;
+  border-radius: 12px;
+  max-width: 600px;
+  margin: 100px auto;
+  text-align: center;
+  color: #e8d9c6;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+  font-size: 20px;
+}
+
+.cancel-message h1 {
+  font-size: 36px;
+  margin-bottom: 20px;
+  line-height: 1.2;
+}
+
+.cancel-message p {
+  font-size: 18px;
+  margin-bottom: 24px;
+}
 
 
+.cancel-message a {
+  font-size: 18px;
+  padding: 14px 24px;
+  display: inline-block;
+  background-color: transparent;
+  color: #e8d9c6;
+  border-radius: 8px;
+  border: 1px solid #e8d9c6;
+  text-decoration: none;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.cancel-message a:hover {
+  background-color: #e8d9c6;
+  color: #550000;
+}
+
+@media (max-width: 600px) {
+  .cancel-message a {
+    font-size: 20px;
+    padding: 16px 28px;
+  }
+
+  .cancel-message a svg {
+    height: 20px;
+    width: 20px;
+  }
+}
 /** {*/
 /*  outline: 1px solid red;*/
 /*}*/

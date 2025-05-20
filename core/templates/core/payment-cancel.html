@@ -1,0 +1,17 @@
+{% load i18n %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="{{ LANGUAGE_CODE }}">
+<head>
+  <meta charset="UTF-8">
+  <title>{% trans "Payment Cancelled" %}</title>
+   <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+<body>
+    <div class="cancel-message">
+  <h1>{% trans "Payment was not completed" %}</h1>
+  <p>{% trans "You can go back and try again when you're ready." %}</p>
+  <a href="/">{% trans "Back to main page" %}</a>
+  </div>
+</body>
+</html>

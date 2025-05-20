@@ -1,0 +1,17 @@
+{% load i18n %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="{{ LANGUAGE_CODE }}">
+<head>
+  <meta charset="UTF-8">
+  <title>{% trans "Payment Successful" %}</title>
+   <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+<body>
+    <div class="success-message">
+  <h1>{% trans "Thank you for your payment!" %}</h1>
+  <p>{% trans "We have received your astrology request. We will contact you shortly by email." %}</p>
+  <a href="/">{% trans "Back to main page" %}</a>
+  </div>
+</body>
+</html>

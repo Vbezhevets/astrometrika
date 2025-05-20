@@ -3,6 +3,29 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Language: sv\n"
 
+msgid "Payment Cancelled"
+msgstr "Betalningen avbröts"
+
+msgid "Payment was not completed"
+msgstr "Betalningen slutfördes inte"
+
+msgid "You can go back and try again when you're ready."
+msgstr "Du kan gå tillbaka och försöka igen när du är redo."
+
+
+
+msgid "Payment Successful"
+msgstr "Betalningen lyckades"
+
+msgid "Thank you for your payment!"
+msgstr "Tack för din betalning!"
+
+msgid "We have received your astrology request. We will contact you shortly by email."
+msgstr "Vi har tagit emot din astrologiska förfrågan. Vi kontaktar dig snart via e-post."
+
+msgid "Back to main page"
+msgstr "Tillbaka till huvudsidan"
+
 # Huvudsida
 msgid "Astrology Readings"
 msgstr "Astrologiska läsningar"
@@ -22,8 +45,8 @@ msgstr "Porträtt av astrolog"
 msgid "Please fill out the form below to schedule your personalized astrology session. I will reach out to confirm the details."
 msgstr "Vänligen fyll i formuläret nedan för att boka din personliga astrologisession. Jag kommer att kontakta dig för att bekräfta detaljerna."
 
-msgid "Full Name"
-msgstr "Fullständigt namn"
+msgid "Your name"
+msgstr "Ditt namn"
 
 msgid "Email Address"
 msgstr "E-postadress"
@@ -40,12 +63,17 @@ msgstr "Födelseort"
 msgid "Focus Area (Optional)"
 msgstr "Fokusområde (valfritt)"
 
+msgid "Astrological Analysis"
+msgstr "Astrologisk analys"
+
 msgid "e.g. love, career, spiritual growth..."
 msgstr "t.ex. kärlek, karriär, andlig utveckling..."
 
 msgid "0 / 1000 characters"
 msgstr "0 / 1000 tecken"
 
+msgid "Order an Analysis"
+msgstr "Beställ en analys"
 
 msgid "Submit Request"
 msgstr "Skicka förfrågan"
@@ -247,3 +275,107 @@ msgstr "6. Ändringar"
 
 msgid "We reserve the right to update these terms. Continued use of our service means you accept the current terms."
 msgstr "Vi förbehåller oss rätten att uppdatera dessa villkor. Genom fortsatt användning av våra tjänster accepterar du de aktuella villkoren."
+
+msgid "Payment by bank card"
+msgstr "Betalning med bankkort"
+
+
+msgid "Reference"
+msgstr "Referens"
+
+msgid "Account name"
+msgstr "Kontoinnehavarens namn"
+
+msgid "Account number"
+msgstr "Kontonummer"
+
+msgid "Bank address"
+msgstr "Bankadress"
+
+msgid "Proceed to Payment"
+msgstr "Fortsätt till betalning"
+
+msgid "Edit Information"
+msgstr "Redigera information"
+
+msgid "Confirm Your Details"
+msgstr "Bekräfta dina uppgifter"
+
+
+msgid "Topic of the Reading"
+msgstr "Temat för tolkningen"
+
+msgid "Natal Chart – personality, talents, inner resources"
+msgstr "Födelsehoroskop – personlighet, talanger, inre resurser"
+
+msgid "Relationships – personal life, partnership, couple dynamics"
+msgstr "Relationer – privatliv, partnerskap, dynamik i par"
+
+msgid "Career and Vocation – development, direction change"
+msgstr "Karriär och kallelse – utveckling, byte av inriktning"
+
+msgid "Relocation – potential, adaptation abroad"
+msgstr "Flytt / utvandring – förändringspotential, anpassning"
+
+msgid "Finances – money flow, material realization"
+msgstr "Ekonomi – pengaflöde, materiell förverkligande"
+
+msgid "Current situation (transits) – ongoing events and challenges"
+msgstr "Nuvarande situation (transiter) – pågående händelser och utmaningar"
+
+msgid "Solar return – annual themes and opportunities"
+msgstr "Solåterkomst – årets teman och möjligheter"
+
+msgid "Child's chart – character, needs, development"
+msgstr "Barnets horoskop – karaktär, behov, utveckling"
+
+msgid "Planning (Choosing a date) – project, wedding, event"
+msgstr "Planering (datumval) – projekt, bröllop, viktigt evenemang"
+
+msgid "Your own topic or question (add comment below)"
+msgstr "Eget ämne eller fråga (lägg till kommentar nedan)"
+
+msgid "Comment / Your question: Tell me briefly about yourself or your situation — it will help me prepare a more accurate reading (optional)"
+msgstr "Kommentar / din fråga: Berätta kort om dig själv eller situationen — det hjälper mig att göra en mer träffsäker tolkning (valfritt)"
+
+msgid "Where are you located now (city and country)"
+msgstr "Var befinner du dig nu (stad och land)"
+
+msgid "Required for predictive astrology (current place of residence)"
+msgstr "Behövs för prognostisk astrologi (aktuell bostadsort)"
+
+msgid "Personal written astrology reading"
+msgstr "Personlig astrologisk analys i skriftlig form"
+
+msgid "Understanding yourself is the first step to confident decisions."
+msgstr "Att förstå sig själv är första steget till trygga beslut."
+
+msgid "The analysis will provide clarity in personal and professional matters, support at your current stage, and guidance for the future."
+msgstr "Analysen ger klarhet i personliga och yrkesmässiga frågor, stöd i din nuvarande situation och vägledning inför framtiden."
+
+msgid "Order Now"
+msgstr "Beställ nu"
+
+msgid "Your Name"
+msgstr "Ditt namn"
+
+msgid "Enter your name, how you would like to be addressed"
+msgstr "Ange ditt namn, hur du vill bli tilltalad"
+
+msgid "Email:"
+msgstr "E-post:"
+
+msgid "For confirming your order and sending the completed reading"
+msgstr "För att bekräfta din beställning och skicka den färdiga analysen"
+
+msgid "Please fill out the form below to request your personalized written astrological analysis"
+msgstr "Vänligen fyll i formuläret nedan för att beställa din personliga astrologiska analys i skriftlig form"
+
+msgid "Order Astrological Analysis"
+msgstr "Beställ astrologisk analys"
+
+msgid "Understanding yourself is the first step toward confident decisions. The analysis provides clarity in personal and professional matters, support at your current stage, and guidance for the future."
+msgstr "Att förstå sig själv är det första steget mot trygga beslut. Analysen ger klarhet i personliga och professionella frågor, stöd i nuet och vägledning för framtiden."
+
+msgid "Personalized Astrological Analysis in Written Format"
+msgstr "Personlig astrologisk analys i skriftlig form"

@@ -22,6 +22,7 @@
 
   <!-- Styles -->
   <link rel="stylesheet" href="{% static 'styles.css' %}?v={{ timestamp }}">
+  <!--<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/themes/dark.css">-->
 </head>
 <body>
   <header class="header">
@@ -76,79 +77,98 @@
   <div class="container">
     <section class="hero">
       <div class="info">
-        <h1 class="title">{% trans "Astrology Readings" %}</h1>
+        <h1 class="title">{% trans "Astrological Analysis" %}</h1>
         <div class="intro">
-          <h3 class="subtitle">{% trans "Gain Insight Into Your Life and Future" %}</h3>
-          <p>{% trans "I offer personalized astrology readings to help you navigate life's challenges and opportunities. Discover your true potential and find guidance on your path." %}</p>
-          <a href="#booking" class="button book-button">{% trans "Book a Reading" %}</a>
+          <h3 class="subtitle">{% trans "Personalized Astrological Analysis in Written Format" %}</h3>
+          <p>{% trans "Understanding yourself is the first step toward confident decisions. The analysis provides clarity in personal and professional matters, support at your current stage, and guidance for the future." %}</p>
+          <a href="#booking" class="button book-button">{% trans "Order Now" %}</a>
         </div>
       </div>
-      <div class="image-container">
         <img src="{% static 'imgs/img.png' %}" alt="{% trans 'Astrologer portrait' %}" class="portrait" />
       </div>
     </section>
 
     <section id="booking" class="booking-section">
       <div class="container">
-        <h2 class="booking-title">{% trans "Book a Reading" %}</h2>
+        <!--<h2 class="booking-title">{% trans "Order an Analysis" %}</h2>-->
         <p class="booking-subtitle">
-          {% trans "Please fill out the form below to schedule your personalized astrology session. I will reach out to confirm the details." %}
+          {% trans "Please fill out the form below to request your personalized written astrological analysis" %}
         </p>
         <form class="booking-form" id="bookingForm">
-          <label for="fullName">{% trans "Full Name" %}</label>
-          <input type="text" id="fullName" name="fullName"  />
+          <label for="fullName">{% trans "Your Name" %}</label>
+          <input type="text" id="fullName" name="full_name" required/>
 
           <label for="email">{% trans "Email Address" %}</label>
           <input type="email" id="email" name="email"  />
 
-          <div class="form-row">
-            <div class="form-group">
-              <label for="birthDate">{% trans "Date of Birth" %}</label>
-              <input type="date" id="birthDate" name="birthDate"  />
+        <div class="form-row">
+          <div class="form-group date-input">
+            <label for="birthDate">{% trans "Date of Birth" %}</label>
+            <div class="input-icon-wrapper">
+              <input type="text" id="birthDate" name="birth_date" required/>
+              <svg class="input-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                  <line x1="16" y1="2" x2="16" y2="6"/>
+                  <line x1="8" y1="2" x2="8" y2="6"/>
+                  <line x1="3" y1="10" x2="21" y2="10"/>
+                </svg>
             </div>
-            <div class="form-group">
+          </div>
+
+            <div class="form-group time-input">
               <label for="birthTime">{% trans "Time of Birth" %}</label>
-              <input type="time" id="birthTime" name="birthTime"  />
-            </div>
-            <div class="form-group location-input">
-              <label for="birthPlace">{% trans "Place of Birth" %}</label>
               <div class="input-icon-wrapper">
-                <input type="text" id="birthPlace" name="birthPlace" />
-                <img src="{% static 'icons/location-icon.svg' %}" alt="Location icon" class="location-icon">
+                <input type="text" id="birthTime" name="birth_time" required/>
+                <svg class="input-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#C0B28E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"/>
+                  <polyline points="12 6 12 12 16 14"/>
+                </svg>
               </div>
             </div>
-          </div>
 
-          <label for="focusArea">{% trans "Focus Area (Optional)" %}</label>
-          <textarea maxlength="1000" id="focusArea" name="focusArea" placeholder="{% trans 'e.g. love, career, spiritual growth...' %}"></textarea>
-          <div id="charCount" style="font-size: 0.9em; color: #667; margin-top: 4px;">
-            {% trans "0 / 1000 characters" %}
+          <div class="form-group location-input">
+            <label for="birthPlace">{% trans "Place of Birth" %}</label>
+            <div class="input-icon-wrapper">
+              <input type="text" id="birthPlace" name="birth_place" required/>
+              <svg class="input-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                  <path d="M21 10c0 6-9 13-9 13S3 16 3 10a9 9 0 1 1 18 0z"/>
+                  <circle cx="12" cy="10" r="3"/>
+                </svg>
+            </div>
           </div>
+        </div>
 
+    <h3>{% trans "Topic of the Reading" %}</h3>
+    <div class="reading-topics">
+      <label><input type="radio" name="readingTopic" value="natal" required> <span>{% trans "Natal Chart – personality, talents, inner resources" %}</span></label>
+      <label><input type="radio" name="readingTopic" value="relationships"> <span>{% trans "Relationships – personal life, partnership, couple dynamics" %}</span></label>
+      <label><input type="radio" name="readingTopic" value="career"> <span>{% trans "Career and Vocation – development, direction change" %}</span></label>
+      <label><input type="radio" name="readingTopic" value="relocation"> <span>{% trans "Relocation – potential, adaptation abroad" %}</span></label>
+      <label><input type="radio" name="readingTopic" value="finances"> <span>{% trans "Finances – money flow, material realization" %}</span></label>
+      <label><input type="radio" name="readingTopic" value="current"> <span>{% trans "Current situation (transits) – ongoing events and challenges" %}</span></label>
+      <label><input type="radio" name="readingTopic" value="solar"> <span>{% trans "Solar return – annual themes and opportunities" %}</span></label>
+      <label><input type="radio" name="readingTopic" value="child"> <span>{% trans "Child's chart – character, needs, development" %}</span></label>
+      <label><input type="radio" name="readingTopic" value="timing"> <span>{% trans "Planning (Choosing a date) – project, wedding, event" %}</span></label>
+      <!--<label><input type="radio" name="readingTopic" value="custom"> <span>{% trans "Your own topic or question (add comment below)" %}</span></label>-->
+    </div>
+
+
+        <label for="focusArea">{% trans "Focus Area (Optional)" %}</label>
+         <textarea maxlength="1000" id="focusArea" name="focus_area"></textarea>
+         <label for="currentLocation">{% trans "Where are you located now (city and country)" %}</label>
+         <input type="text" id="currentLocation" name="currentLocation" />
+          <!--<div id="charCount" style="font-size: 0.9em; color: #667; margin-top: 4px;">-->
+          <!--  {% trans "0 / 1000 characters" %}-->
+          <!--</div>-->
           <button type="submit" class="button submit-button">{% trans "Submit Request" %}</button>
         </form>
 
-        <div id="confirmationMessage" style="display: none; margin-top: 20px; color: white;">
-          ✅ {% trans "Your request has been sent! I will contact you soon." %}
-        </div>
-            <div id="paymentOptions" style="display: none; margin-top: 30px; text-align: center;">
-              <p style="margin-bottom: 16px;">{% trans "Thank you! Now you can proceed with the payment below:" %}</p>
 
-              <a href="https://buy.stripe.com/dR6g1O9sh5wC2dO288" target="_blank" class="button pay-button stripe-button">
-                <img src="{% static 'icons/stripe-logo.svg' %}" alt="Stripe logo" style="height: 20px; margin-right: 10px;" />
-                {% trans "Pay via Stripe" %}
-              </a>
+        <!--<div id="confirmationMessage" style="display: none; margin-top: 20px; color: white;">-->
+        <!--  ✅ {% trans "Your request has been sent! I will contact you soon." %}-->
+        <!--</div>-->
 
-              <a href="https://wise.com/pay/r/5xJ4nSIDUTfyR9E" target="_blank" class="button pay-button wise-button">
-                <img src="{% static 'icons/wise-logo.png' %}" alt="Wise logo" style="height: 20px; margin-right: 10px;" />
-                {% trans "Pay via Wise" %}
-              </a>
 
-              <!--<div style="margin-top: 30px;">-->
-              <!--  <p style="margin-bottom: 12px;">{% trans "Scan QR to pay via Stripe" %}</p>-->
-              <!--  <img src="{% static 'imgs/stripe-qr.png' %}" alt="Stripe QR Code" style="max-width: 180px; margin: 0 auto;" />-->
-              <!--</div>-->
-            </div>
       </div>
     </section>
   </div>
@@ -175,43 +195,47 @@
 <div id="paymentModal" class="modal">
   <div class="modal-content">
     <span class="close-button">&times;</span>
-    <h3>{% trans "Choose your payment method" %}</h3>
-    <div class="payment-options">
-      <a href="https://wise.com/pay/business/astrometrika" target="_blank" class="button pay-button">Wise</a>
-      <a href="https://buy.stripe.com/dR6g1O9sh5wC2dO288" target="_blank" class="button pay-button">Stripe</a>
-      <button id="manualDetailsButton" class="button pay-button">{% trans "Manual Bank Transfer" %}</button>
+    <h3>{% trans "Confirm Your Details" %}</h3>
+    <div id="formSummary" class="form-summary">
+      <p><strong>{% trans "Your Name" %}:</strong> <span id="summaryFullName"></span></p>
+      <p><strong>{% trans "Email Address" %}:</strong> <span id="summaryEmail"></span></p>
+      <p><strong>{% trans "Date of Birth" %}:</strong> <span id="summaryBirthDate"></span></p>
+      <p><strong>{% trans "Time of Birth" %}:</strong> <span id="summaryBirthTime"></span></p>
+      <p><strong>{% trans "Place of Birth" %}:</strong> <span id="summaryBirthPlace"></span></p>
+      <!--<p><strong>{% trans "Focus Area (Optional)" %}:</strong> <span id="summaryFocusArea"></span></p>-->
+      <p><strong>{% trans "Topic of the Reading" %}:</strong> <span id="summaryReadingTopic"></span></p>
     </div>
-    <div id="manualDetails" style="display: none; margin-top: 20px; text-align: left;">
-        <ul class="copy-list">
-          <li><strong>{% trans "Reference" %}:</strong>
-            <span class="copy-text">{{ payment_details.reference }}</span>
-            <button class="copy-btn" data-copy="{{ payment_details.reference }}">📋</button>
-          </li>
-          <li><strong>{% trans "Account name" %}:</strong>
-            <span class="copy-text">{{ payment_details.account_name }}</span>
-            <button class="copy-btn" data-copy="{{ payment_details.account_name }}">📋</button>
-          </li>
-          <li><strong>SWIFT/BIC:</strong>
-            <span class="copy-text">{{ payment_details.swift }}</span>
-            <button class="copy-btn" data-copy="{{ payment_details.swift }}">📋</button>
-          </li>
-          <li><strong>{% trans "Account number" %}:</strong>
-            <span class="copy-text">{{ payment_details.account_number }}</span>
-            <button class="copy-btn" data-copy="{{ payment_details.account_number }}">📋</button>
-          </li>
-          <li><strong>{% trans "Bank address" %}:</strong>
-            <span class="copy-text">{{ payment_details.bank_address }}</span>
-            <button class="copy-btn" data-copy="{{ payment_details.bank_address }}">📋</button>
-          </li>
-        </ul>
+    <div class="payment-options">
+      <button id="proceedPayment" class="button pay-button">{% trans "Proceed to Payment" %}</button>
+      <button id="editForm" class="button pay-button">{% trans "Edit Information" %}</button>
     </div>
   </div>
 </div>
+
   <script src="{% static 'js/lang-select.js' %}?v={{ timestamp }}"></script>
 
     <script src="{% static 'js/stars.js' %}"></script>
     <script src="{% static 'js/form.js' %}"></script>
     <script src="{% static 'js/modal.js' %}"></script>
 
+
+<!--<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>-->
+<!--<script>-->
+<!--  flatpickr("#birthDate", {-->
+<!--    altInput: true,-->
+<!--    altFormat: "F j, Y",-->
+<!--    dateFormat: "Y-m-d"-->
+<!--  });-->
+
+<!--  flatpickr("#birthTime", {-->
+<!--    enableTime: true,-->
+<!--    noCalendar: true,-->
+<!--    dateFormat: "H:i",-->
+<!--    time_24hr: true-->
+<!--  });-->
+<!--</script>-->
+<script>
+  window.CHECKOUT_URL = "{% url 'create-checkout-session' %}";
+</script>
 </body>
 </html>

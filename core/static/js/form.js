@@ -1,68 +1,35 @@
 document.addEventListener("DOMContentLoaded", function () {
-  const bookingForm = document.getElementById('bookingForm');
-  const confirmation = document.getElementById('confirmationMessage');
+  const bookingForm = document.getElementById("bookingForm");
 
-  if (!bookingForm) return;
+  if (bookingForm) {
+    bookingForm.addEventListener("submit", function (e) {
+      e.preventDefault();
 
-  bookingForm.addEventListener('submit', function (e) {
-    e.preventDefault();
+      const checkedRadio = bookingForm.querySelector('input[name="readingTopic"]:checked');
+      const readingTopicValue = checkedRadio?.value || "";
+      const readingTopicText = checkedRadio?.nextElementSibling.textContent || "";
 
-    const formData = {
-      fullName: bookingForm.fullName.value,
-      email: bookingForm.email.value,
-      birthDate: bookingForm.birthDate.value,
-      birthTime: bookingForm.birthTime.value,
-      birthPlace: bookingForm.birthPlace.value,
-      focusArea: bookingForm.focusArea.value
-    };
+      const formData = {
+        fullName: bookingForm.fullName.value,
+        email: bookingForm.email.value,
+        birthDate: bookingForm.birthDate.value,
+        birthTime: bookingForm.birthTime.value,
+        birthPlace: bookingForm.birthPlace.value,
+        focusArea: bookingForm.focusArea.value,
+        readingTopic: readingTopicValue
+      };
 
-    fetch("/send_booking_request/", {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'X-CSRFToken': getCookie('csrftoken'),
-      },
-      body: JSON.stringify(formData)
-    })
-      .then(response => {
-        if (!response.ok) throw new Error('Network error');
-        return response.json();
-      })
-      .then(data => {
-        if (data.status === 'ok') {
-          bookingForm.reset();
-          confirmation.style.display = 'block';
-          const modal = document.getElementById('paymentModal');
-          modal.classList.add('show');
-        }
-      })
-      .catch(error => {
-        alert('An error occurred: ' + error.message);
-      });
-  });
 
- function getCookie(name) {
-    let cookieValue = null;
-    if (document.cookie && document.cookie !== '') {
-      const cookies = document.cookie.split(';');
-      for (let i = 0; i < cookies.length; i++) {
-        const cookie = cookies[i].trim();
-        if (cookie.substring(0, name.length + 1) === (name + '=')) {
-          cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
-          break;
-        }
-      }
-    }
-    return cookieValue;
-  }
+      document.getElementById('summaryFullName').textContent = formData.fullName;
+      document.getElementById('summaryEmail').textContent = formData.email;
+      document.getElementById('summaryBirthDate').textContent = formData.birthDate;
+      document.getElementById('summaryBirthTime').textContent = formData.birthTime;
+      document.getElementById('summaryBirthPlace').textContent = formData.birthPlace;
+    //   document.getElementById('summaryFocusArea').textContent = formData.focusArea;
+      document.getElementById('summaryReadingTopic').textContent = readingTopicText;
 
-  const focusAreaInput = document.getElementById('focusArea');
-  const charCountDisplay = document.getElementById('charCount');
-
-  if (focusAreaInput) {
-    focusAreaInput.addEventListener('input', function () {
-      const length = focusAreaInput.value.length;
-      charCountDisplay.textContent = `${length} / 1000 characters`;
+      const modal = document.getElementById("paymentModal");
+      modal.classList.add("show");
     });
   }
 });
